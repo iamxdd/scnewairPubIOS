@@ -1,0 +1,2122 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+/*登录页面*/
+#login{
+    background-image:url(../img/backGround/BG_login.png);
+    background-size:100% 100%;
+}
+#login_logo_text{
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:20px;
+    background-image:url(../img/icon/logo_text.png);
+    background-size: 275px 36px;
+    width: 275px;
+    height: 36px;
+}
+#login_logo{
+    margin:auto;
+    margin-top:150px;
+    margin-bottom:10px;
+    background-image:url(../img/icon/logo.png);
+    background-size:50px 50px;
+    width:50px;
+    height:50px;
+}
+.login_rememberPw_Div>.ui-checkbox>input{
+    opacity: 0;
+    height:0px;
+}
+#login_rememberPw{
+    float:right;
+    padding-right:0px;
+    margin-right: 15%;
+    color:#fff;
+    text-shadow: 0px 0px 0px;
+    width: 70px;
+    background-color: rgba(0,0,0,0);
+    border: 0px;
+    font-weight:100;
+}
+.login_labelInput{
+    margin:auto;
+    width:70%;
+    border-bottom:1px solid #fff;
+    margin-top:5px;
+    color:#fff;
+}
+.login_labelInput>input{
+    border:0px;
+    padding:5px;
+    padding-left:30px;
+    box-sizing: border-box;
+    width:100%;
+    background-color: rgba(0,0,0,0)!important;
+    color: #fff!important;
+    outline: none;
+}
+.login_citySelect_Div{
+    margin: auto;
+    margin-top: 45px;
+    width: 70%;
+}
+#login_citySelect-button{
+    font-weight:100;
+}
+#login_citySelect{
+    text-align:center;
+    display: block;
+    box-shadow: 0px 0px 0px;
+    border: 0px;
+    border-radius: 6px;
+    height:40px;
+    background-color: #fff;
+    color:#000;
+}
+#login_submit{
+    margin:auto;
+    width:70%;
+    color:#fff;
+    background-color: #2BC8C6;
+    padding: 10px 0px;
+    box-shadow: 0px 0px 0px;
+    border: 0px;
+    border-radius: 6px;
+    margin-top:5px;
+    display: block;
+    font-weight:100;
+}
+/*主页*/
+.indexHeaderButton{
+    color:#fff;
+    background-color:#2BC8C6;
+    border: 0px solid #c5c5c5;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 21px!important;
+    outline:none;
+}
+#indexMapChooseBar,#AbnormalChooseBar{
+    font-size:0px;
+    padding:0px;
+    background-color: #ffffff;
+    height:37px;
+}
+#indexMapChooseBar>div,#AbnormalChooseBar>div{
+    font-weight: normal!important;
+    font-family: "Droidsansfallback";
+    width:50%;
+    display: inline-block;
+    font-size:14px;
+    text-align:center;
+    padding:10px 0px;
+    color:#000000;
+}
+#AbnromalfollowingPage_content,#AbnromalwaterfollowingPage_content{
+    padding-top: 35px;
+}
+.indexMapActive,.AbnormalActive{
+    color:#2CC8C5!important;
+    border-bottom: 2px solid #2CC8C5;
+}
+#indexGasChangeBar{
+    font-size:0px;
+    padding:0px;
+    background-color: #f1f1f1;
+}
+#indexGasChangeBar>div{
+    width:14.285%;
+    display: inline-block;
+    font-size:12px;
+    text-align:center;
+    padding:8px 0px;
+}
+.indexGasActive,.indexWaterActive{
+    color:#2BC8C6;
+    border-bottom:3px solid #2BC8C6;
+}
+#indexWaterChangeBar{
+    font-size:0px;
+    padding:0px;
+    background-color: #f1f1f1;
+}
+#indexWaterChangeBar>div{
+    width:15%;
+    display: inline-block;
+    font-size:14px;
+    text-align:center;
+    padding:8px 1%;
+}
+#indexWaterChangeBar>div:nth-child(1){
+    width: 20%;
+}
+#indexWaterChangeBar>div:nth-child(4){
+    width: 25%;
+}
+#maping{
+    width: 100%;
+    height: 640px;
+    text-align: center;
+    display: none;
+    z-index: 9999;
+}
+#maping img{
+    margin-top: 50%;width: 35%
+}
+#indexStatMenuBar{
+    font-size:0px;
+    padding:0px;
+    background-color: #fff;
+    overflow:hidden;
+}
+#indexStatMenuBar>div{
+    width:50%;
+    display: inline-block;
+    font-size:13px;
+    text-align:center;
+    padding:8px 0px;
+    float:left;
+}
+.indexStatActive{
+    color:#2BC8C6;
+    border-bottom:3px solid #2BC8C6;
+}
+#indexPageMap,#indexWaterMap,#indexEnvMap{
+    position: absolute;
+    top: 60px;
+    bottom: 52px;
+    left: 0;
+    right: 0;
+}
+#indexPageMapMarkBar,#WaterMapMarkBar{
+    z-index: 1000;
+    position: fixed!important;
+    right: 9px!important;
+    width: 214px;
+    height: 45px;
+    background-size: 214px 45px;
+    margin-bottom: 9px;
+}
+#indexPageType,#WaterMapSiteBar{
+    display: none;
+    z-index: 1000;
+    position: fixed!important;
+    left: 10px!important;
+    width: 52px;
+    height: 100px;
+    background-size: 214px 45px;
+    top: 160px;
+    border-radius: 4px;
+}
+#indexPageType img,#WaterMapSiteBar img{
+    width: 100%;
+    opacity: 0.9;
+}
+#subSiteChange{
+    display: none;
+    z-index: 1000;
+    position: fixed;
+    right: 20px;
+    width: 70px;
+    top: 120px;
+}
+#subSiteChange img{
+    width: 100%;
+    opacity: 0.9;
+}
+/*审核*/
+.auditHeaderButton{
+    color:#fff;
+    background-color:#2BC8C6;
+    border: 0px solid #c5c5c5;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 21px!important;
+}
+#auditMarkBar{
+    border-bottom:2px solid #D4D4D4;
+    font-size:0px;
+    padding:8px 0px;
+    background-color: #fff;
+    overflow:hidden;
+}
+#auditMarkBar>div{
+    width:25%;
+    display: inline-block;
+    font-size:14px;
+    text-align:center;
+    float:left;
+}
+.audit_down_no{
+    background-image:url(../img/icon/down.png);
+    background-size: 13px 13px;
+    width:13px;
+    height:13px;
+    display: inline-block;
+}
+.audit_down_yes{
+    background-image:url(../img/icon/down2.png);
+    background-size: 13px 13px;
+    width:13px;
+    height:13px;
+    display: inline-block;
+}
+.audit_check_no{
+    background-image:url(../img/icon/check.png);
+    background-size: 13px 13px;
+    width:13px;
+    height:13px;
+    display: inline-block;
+}
+.audit_check_yes{
+    background-image:url(../img/icon/check2.png);
+    background-size: 13px 13px;
+    width:13px;
+    height:13px;
+    display: inline-block;
+}
+/*预报*/
+.forecastContentItem{
+    width: 50%;
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0px 0px 0px;
+    float:left;
+    background-color:#fff;
+}
+.forecastContentItem:nth-child(1){
+    border-bottom:1px solid #E0E0E0;
+    border-right:1px solid #E0E0E0;
+}
+.forecastContentItem:nth-child(2){
+    border-bottom:1px solid #E0E0E0;
+}
+.forecastContentItem:nth-child(3){
+    border-right:1px solid #E0E0E0;
+}
+.forecastContentItemImg{
+    margin:auto
+}
+.forecastContentItemLabel{
+    margin:0px!important;
+    color:#696e6a;
+    font-size:20px!important;
+    margin-top:10px!important;
+}
+.forecastMapImg{
+    background-image:url(../img/icon/mapForeIcon.png);
+}
+.forecastPubImg{
+    background-image:url(../img/icon/publishForeIcon.png);
+}
+.forecastCityImg{
+    background-image:url(../img/icon/cityForeIcon.png);
+}
+.forecastProvinceImg{
+    background-image:url(../img/icon/provinceForeIcon.png);
+}
+/*设置*/
+.settingContentItem{
+    margin-top:10px;
+    padding:15px 0px;
+    color:#000;
+    text-shadow:0px 0px 0px;
+    background-color: #fff;
+    font-size: 0px;
+}
+.settingContentItem>label{
+    display: inline-block!important;
+    width:50%;
+    box-sizing: border-box;
+    padding:0px 10px;
+    margin:0px!important;
+}
+.textRight{
+    text-align:right;
+}
+#returnToLogin{
+    background-color:#ff0000;
+    color:#fff;
+    text-align:center;
+}
+/*统计*/
+#aqiDistriGraph{
+    width:100%;
+    height:200px;
+}
+.indexStatContentItem{
+    padding-top:35px
+}
+#aqiDistriTable>.aqiDistriTableTitle{
+    background-color: #2BC8C6;
+    font-size:0px;
+    padding:0px 10px;
+}
+#aqiDistriTable>.aqiDistriTableTitle>div:nth-child(1){
+    display: inline-block;
+    text-align: center;
+    color:#fff;
+    font-size:17px;
+    padding:5px 0px;
+    width:30%;
+}
+#aqiDistriTable>.aqiDistriTableTitle>div:nth-child(2){
+    display: inline-block;
+    text-align: center;
+    color:#fff;
+    font-size:17px;
+    padding:5px 0px;
+    width:20%;
+}
+#aqiDistriTable>.aqiDistriTableTitle>div:nth-child(3){
+    display: inline-block;
+    text-align: center;
+    color:#fff;
+    font-size:17px;
+    padding:5px 0px;
+    width:50%;
+}
+.tableContentItem{
+    color:#000;
+    background-color: #fff;
+    padding:5px 0px;
+    border-bottom:1px solid #2BC8C6;
+    -moz-user-select:none!important;
+}
+.tableContentItem>div:nth-child(1){
+    display: inline-block;
+    text-align: center;
+    font-size:17px;
+    padding:5px 0px;
+    width:30%;
+}
+.tableContentItem>div:nth-child(2){
+    display: inline-block;
+    text-align: center;
+    font-size:17px;
+    padding:5px 0px;
+    width:20%;
+}
+.tableContentItem>div:nth-child(3){
+    display: inline-block;
+    text-align: center;
+    font-size:17px;
+    padding:5px 0px;
+    width:50%;
+}
+#aqiDistriTableContent{
+    padding: 0px 10px;
+    background-color: #fff;
+}
+#aqiDistriGraph{
+    position: fixed;
+}
+#aqiDistriTable{
+    margin-top: 200px;
+}
+#aqiDistriTableContent{
+    overflow: hidden;
+}
+#AllProvinceIfOnlineSwiper1,#AllProvinceIfOnlineSwiper2{
+    height:200px;
+    overflow: hidden;
+    border-radius: 7px;
+}
+.allProvinceGraphSwiperSlide1{
+    background-image: url(../img/backGround/pie1.png);
+    background-size:100% 200px;
+}
+.allProvinceGraphSwiperSlide2{
+    background-image: url(../img/backGround/pie2.png);
+    background-size:100% 200px;
+}
+#AllProvinceIfOnline>div{
+    padding:10px;
+}
+.indexStatContentItemLabel{
+    position: absolute;
+    z-index: 2;
+    font-size: 13px;
+    padding: 2px 10px;
+    background-color: #2BC8C6;
+    color: #fff;
+    border-bottom-right-radius: 5px;
+}
+.indexStatContentItemLabel2{
+    position: absolute;
+    z-index: 2;
+    font-size: 13px;
+    padding: 2px 10px;
+    background-color: #fff;
+    color: #2BC8C6;
+    border-radius: 5px;
+    right: 20px;
+    margin-top: -30px;
+}
+#allProvinceGraphSwiper1Graph,#allProvinceGraphSwiper2Graph,#allProvinceGraphSwiper1Table,#allProvinceGraphSwiper2Table{
+    height: 100%;
+    overflow:auto;
+}
+.swiperTableTitle{
+    padding:0px 10px;
+    font-size:0px;
+    background-color: #2BC8C6;
+}
+.swiperTableTitle>div{
+    font-size:13px;
+    color:#fff;
+    display: inline-block;
+    padding:5px 0px;
+    text-align: center;
+    width:50%;
+}
+.swiperTableTr{
+    margin:0px 10px;
+    font-size:0px;
+    border-bottom:1px solid #2BC8C6;
+}
+.swiperTableTr>div{
+    font-size:13px;
+    color:#000;
+    display: inline-block;
+    padding:5px 0px;
+    text-align: center;
+    width:50%;
+}
+/*直管站*/
+#indexStriPage_Content1_TopBar{
+    padding:5px;
+    background-color: #fff;
+}
+#indexContent1Level{
+    display: inline-block;
+    padding: 2px 7px;
+    font-size: 14px;
+    color:#fff;
+    border-radius: 5px;
+}
+#indexContent1Time{
+    display: inline-block;
+    padding: 2px 7px;
+    font-size: 14px;
+    float:right;
+}
+#indexStriPage_Content1_Temp{
+    padding:30px 0px;
+    background-color: #fff;
+    text-align: center;
+}
+#indexStriPage_Content1_TempDiv{
+    margin:auto;
+    text-align: center;
+    display: inline-block;
+}
+#indexContent1Temp{
+    font-size:60px;
+    display: inline-block;
+}
+#indexContent1Fore{
+    font-size:17px;
+    display: inline-block;
+}
+#indexStriPage_Content2{
+    background-color: #fff;
+    border-bottom:1px solid #2BC8C6;
+    font-size:0px;
+    padding:10px 0px;
+}
+.indexStriPageContent2Item{
+    width:20%;
+    display: inline-block;
+    font-size: 14px!important;
+    text-align: center;
+}
+.indexStriPageContent2Item>label:nth-child(2){
+    font-size:14px!important;
+    color:#858585;
+}
+.indexStriPageContent2Item>label:nth-child(3){
+    font-size:14px!important;
+}
+.indexStriPageContent2Item>label:nth-child(4){
+    font-size:12px!important;
+    color:#858585;
+}
+.striContent2CanseeIcon{
+    font-size:35px!important;
+    margin: auto;
+    color:#ffa35a;
+}
+.striContent2PIcon{
+    font-size:35px!important;
+    margin: auto;
+    color:#56c8c9;
+}
+.striContent2WindWordIcon{
+    font-size:35px!important;
+    margin: auto;
+    color:#7cd368;
+}
+.striContent2WindSpeedIcon{
+    font-size:35px!important;
+    margin: auto;
+    color:#b784d1;
+}
+.striContent2DamIcon{
+    font-size:35px!important;
+    margin: auto;
+    color:#6ba0ee;
+}
+#indexStriPage_Content3{
+    padding:10px 0px;
+    background-color: #fff;
+    border-bottom:1px solid #2BC8C6;
+    font-size:0px;
+}
+.indexStriPageContent3Item{
+    width:16.66%;
+    display: inline-block;
+    font-size:14px!important;
+    text-align: center;
+}
+.indexStriPageContent3Item>label{
+    font-size:14px!important
+}
+.indexStriPageContent3Icon{
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    padding-top:15px;
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+}
+.indexStriPage_Content3Title{
+    padding-left:10px;
+    margin-bottom:10px!important;
+    font-size:14px!important;
+}
+#indexStriPage{
+    background-color: #fff;
+}
+.indexStriPage_Content4Title{
+    padding:10px;
+    font-size:14px!important;
+}
+#indexStriPageContent4CheckBar{
+    font-size:0px;
+    background-color:#f1f1f1;
+}
+#indexStriPageContent4CheckBar>div{
+    font-size: 14px!important;
+    padding:5px 0px;
+    text-align: center;
+    display: inline-block;
+    width:14.28%;
+}
+.indexStriPageCheckActive{
+    color:#2BC8C6;
+    border-bottom:2px solid #2BC8C6;
+    box-sizing: border-box;
+}
+/*城市*/
+#cityGraphDWSpan,#stationGraphDWSpan{
+    font-size:13px;
+}
+.headerButtonA{
+    background-color: rgba(0,0,0,0)!important;
+    padding: 3px!important;
+    color: #fff!important;
+    font-weight: normal!important;
+    text-shadow: 0px 0px 0px!important;
+    box-shadow: 0px 0px 0px!important;
+    border: 0px solid #c5c5c5!important;
+    border-radius: 4px!important;
+    font-size:21px!important;
+    margin-top:4px!important;
+    float: right;
+}
+#cityPage_selectCity{
+    background-color:#2BC8C6;
+    width: 175px;
+}
+.cityPage_citySelectRow{
+    font-size:0px;
+    padding:3px 0px;
+}
+.cityPage_citySelectRow>div{
+    width:33.33%;
+    box-sizing:border-box;
+    font-size:13px;
+    display: inline-block;
+    text-align: center;
+    color:#fff;
+}
+.cityPage_citySelectItemLeft{
+    border-right:1px solid #fff;
+}
+.cityPage_citySelectItemRight{
+    border-left:1px solid #fff;
+}
+#indexStriPage_selectCity{
+    background-color: #2BC8C6;
+}
+.indexStriStationItem{
+    color:#fff;
+    border-bottom:1px solid #fff;
+    font-size:14px;
+    padding:3px;
+}
+#indexStriPageContent4Graph{
+    height:200px;
+}
+/*城市*/
+#citypage_Content1Time,#waterPage_Content1Time{
+    text-align: right;
+    padding-right: 10px;
+    padding-top: 5px;
+    color: #fff;
+    text-shadow: 1px 1px 0px #868686;
+    font-size:14px;
+}
+#waterPage_stationStatu{
+    text-align: right;
+    padding-right: 10px;
+    padding-top: 5px;
+    color: #fff;
+    text-shadow: 1px 1px 0px #868686;
+    font-size:14px;
+    font-weight: 100!important;
+}
+#waterPage_stationStatu>span{
+    padding: 0px 10px;
+    display: inline-block;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    color: #000000;
+    font:bold 12px "Microsoft YaHei UI"!important;
+    font-weight: 100!important;
+    text-align: center!important;
+    vertical-align: middle!important;
+}
+#citypage_Content1AQI{
+    font-size: 57px;
+    color: #fff;
+    display: inline-block;
+}
+#citypage_Content1AQITitleDiv{
+    display: inline-block;
+}
+#citypage_Content1AQITitle{
+    font-size: 15px;
+    color: #fff;
+    text-shadow: 1px 1px 0px #000;
+    margin-bottom: 21px;
+}
+#citypage_Content1Weather{
+    font-size:13px;
+    color:#fff;
+}
+#citypage_Content1AQILevel{
+    display:inline-block;
+    color:#fff;
+    font-size:13px;
+}
+#citypage_Content1AQILevel>div{
+    border-radius:5px;
+    padding:1px 10px;
+    text-align: center;
+}
+#citypage_Content1Wind{
+    display: inline-block;
+    font-size:13px;
+    color:#fff;
+}
+#citypage_Content1AQIPull{
+    font-size:13px;
+    color:#fff;
+    padding-left:10px;
+    margin-top: 5px;
+    display: inline-block;
+}
+#citypage_Content1AQIDiv{
+    display: inline-block;
+    border-bottom:1px solid #fff;
+    margin-top:20px;
+    margin-left: 9px;
+    padding-right: 100px;
+}
+#waterPage_level{
+    position: absolute;
+    top:75px;
+    left:5%;
+}
+#waterPage_level>img{
+    width: 40%;
+}
+#cityPage_Content1{
+    background-image:url(../img/backGround/BG_cityPage.png);
+    background-size:100% 170px;
+    height:170px;
+}
+#waterPage_Content1{
+    background-image:url(../img/backGround/BG_waterdetailPage.jpg);
+    background-size:100% 170px;
+    height:170px;
+}
+#cityPage_Content2{
+    padding:10px;
+    padding-bottom:22px;
+    border-bottom:1px solid #2BC8C6;
+    background-color:#f1f1f1;
+}
+#waterPage_Content2{
+    padding:10px;
+    padding-bottom:22px;
+    background-color:#f1f1f1;
+}
+#cityPage_Content2>.cityPage_Content2Title,#waterPage_Content2>.waterPage_Content2Title{
+    margin-bottom:13px!important;
+}
+.cityPage_Content2Title,.waterPage_Content2{
+    margin-bottom:10px!important;
+    font-size:15px!important;
+}
+.cityPage_Content2Row,.waterPage_Content2Row{
+    font-size:0px;
+}
+.cityPage_Content2Item{
+    width:33.33%;
+    font-size:14px;
+    display: inline-block;
+    font-size:0px;
+    padding:5px;
+    box-sizing: border-box;
+}
+.waterPage_Content2Item{
+    width:44%;
+    margin: 0% 2%;
+    font-size:14px;
+    display: inline-block;
+    font-size:0px;
+    padding:5px;
+    box-sizing: border-box;
+}
+.waterPage_Content2Item:nth-child(1),.waterPage_Content2Item:nth-child(3){
+    margin-right: 5%;
+}
+.cityPage_Content2ItemTitle{
+    display: inline-block!important;
+    width:50%;
+    text-align: left;
+    font-size:14px;
+    margin-bottom:6px!important;
+}
+.waterPage_Content2ItemTitle{
+    display: inline-block!important;
+    width:69%;
+    text-align: left;
+    font-size:14px;
+}
+.cityPage_Content2ItemValue{
+    display: inline-block!important;
+    width:50%;
+    text-align: right;
+    font-size:14px;
+    margin-bottom:6px!important;
+}
+.waterPage_Content2ItemValue{
+    display: inline-block!important;
+    width:31%;
+    text-align: right;
+    font-size:14px;
+    margin-bottom:6px!important;
+}
+.cityPage_Content2ItemBarBack,.waterPage_Content2ItemBarBack{
+    width: 100%;
+    height: 2px;
+}
+.cityPage_Content2ItemBar,.waterPage_Content2ItemBar{
+    height: 2px;
+}
+#cityPage_Content3{
+    padding:10px;
+    padding-bottom:22px;
+    border-bottom:1px solid #2BC8C6;
+    background-color:#f1f1f1;
+    box-sizing: border-box;
+}
+#cityPage_Content3Tips{
+    font-size:12px;
+}
+#cityPage_Content4{
+    background-color:#f1f1f1;
+}
+.cityPage_Content4Title{
+    padding:10px 10px;
+    margin-bottom: 0px!important;
+    font-size:14px!important;
+}
+#waterPage_Content4{
+    position: relative;
+}
+.legend{
+    position: absolute;
+    top: 25px;
+    left: 38px;
+}
+.legend li{
+    float: left;
+    list-style: none;
+}
+/*.legend li:nth-child(1){*/
+  /*margin-left: -10%;*/
+/*}*/
+.legend li span{
+    width: 35px;
+    display: inline-block;
+    font-size: 12px;
+}
+.legend label{
+    display: inline-block;
+    width: 20px;
+    height:10px;
+    border-radius: 8px;
+}
+.lev1{
+    background-color: #5FBEFF;
+}
+.lev2{
+    background-color: #54db7d;
+}
+.lev3{
+    background-color: #f1ca30;
+}
+.lev4{
+    background-color: #ff952e;
+}
+.lev5{
+    background-color: #e22935;
+}
+.lev5p{
+    background-color: #5c251e;
+}
+.cityPage_Content4ButtonDiv,.waterPage_Content4ButtonDiv{
+    font-size:0px;
+    border-radius: 4px;
+    border:1px solid #2BC8C6;
+    color: #2BC8C6;
+    width:182px;
+    overflow:hidden;
+    background-color:#f1f1f1;
+    margin: auto;
+    padding:0px!important;
+    overflow:hidden;
+    height: 21px;
+    box-sizing: border-box;
+}
+.cityPage_Content4Button,.waterPage_Content4Button{
+    font-size:13px!important;
+    width: 50%;
+    padding: 3px 0px;
+    display: inline-block!important;
+    text-align:center;
+    box-sizing: border-box;
+    margin: 0px!important;
+    float:left;
+}
+.cityPage_Content4Button:first-child{
+    border-right:1px solid #2BC8C6;
+}
+.waterPage_Content4Button:first-child{
+    border-right:1px solid #2BC8C6;
+}
+#cityPage{
+    background-color:#fff;
+}
+.cityPage_Content4ButtonActive,.waterPage_Content4ButtonActive{
+    background-color:#2BC8C6;
+    color:#fff;
+}
+#cityPage_Content4_GraphOuterDivHour,#cityPage_Content4_GraphOuterDivDay,#waterPage_Content4_GraphOuterDivDay,#waterPage_Content4_GraphOuterDivHour{
+    width:100%;
+    overflow:auto;
+    margin:10px 0px;
+    margin-bottom:10px;
+}
+#cityPage_Content4_GraphHour,#cityPage_Content4_GraphDay,#waterPage_Content4_GraphDay,#waterPage_Content4_GraphHour{
+    height:122px;
+    white-space: nowrap;
+}
+#cityGasChangeBar,#waterChangeBar{
+    font-size:0px;
+    padding:0px;
+    background-color: #f1f1f1;
+}
+#cityGasChangeBar>div{
+    width:14.285%;
+    display: inline-block;
+    font-size:13px;
+    text-align:center;
+    padding:8px 0px;
+}
+#waterChangeBar>div{
+    width:19%;
+    display: inline-block;
+    font-size:13px;
+    text-align:center;
+    padding:8px 0px;
+}
+#waterChangeBar>div:nth-child(4){
+    width: 24%;
+}
+#cityPage_Content5,#waterPage_Content5{
+    margin-top:5px;
+    padding-bottom: 10px;
+}
+#cityPageMap{
+    width:100%;
+    height:250px;
+    /*display: none;*/
+}
+#waterDetailPageMap{
+    width:100%;
+    height:260px;
+    /*display: none;*/
+}
+.cityGasActive{
+    color:#2BC8C6;
+    /*border-bottom:3px solid #2BC8C6;*/
+}
+#cityGasTableChangeBar{
+    font-size:0px;
+    padding:0px;
+    background-color: #2BC8C6;
+    height:35px;
+}
+#cityGasTableChangeBar>div{
+    width:14.285%;
+    display: inline-block;
+    font-size:12px;
+    text-align:center;
+    padding:10px 0px;
+    color:#4D4D4D;
+}
+.cityGasTableActive{
+    color:#fff!important;
+}
+#cityTpyeChooseBar{
+    font-size:0px;
+    padding:0px;
+    background-color: #fff;
+    height:35px;
+}
+#cityTpyeChooseBar>div{
+    width:33.3%;
+    display: inline-block;
+    font-size:12px;
+    text-align:center;
+    padding:10px 0px;
+    color:#9A8C8C;
+}
+#cityPageMap .BMapLabel{
+    width: 30px!important;
+    height: 15px!important;
+}
+.cityTypeActive{
+    color:#AFF6FD!important;
+    background-color: #E3FFFD;
+}
+.gasTableItem{
+    font-size:0px;
+    padding:7px 0px;
+    border-bottom:1px solid #a7a7a7;
+}
+.gasTableItem>div{
+    width:50%;
+    display: inline-block;
+    font-size:14px;
+}
+.gasTableItemName{
+    text-align: left;
+    padding-left: 40px;
+    box-sizing: border-box;
+}
+.gasTableItemValue{
+    display: inline-block;
+    width: 120px;
+    padding: 4px;
+    box-sizing: border-box;
+    height: 27px;
+    color:#fff;
+    margin-right: 40px;
+    text-align: center;
+    border-radius: 4px;
+    float:right;
+    margin-bottom:-8px;
+}
+.gasTableItemIcon{
+    font-size:10px;
+}
+.backButtonA{
+    background-color: rgba(0,0,0,0)!important;
+    border: 0px!important;
+    box-shadow: 0px 0px 0px!important;
+    padding: 0px!important;
+    font-size: 25px!important;
+    color: #fff!important;
+    padding: 0px 8px!important;
+    margin-left: -5px!important;
+}
+
+#cityPageStation_Content1{
+    background-image:url(../img/backGround/descript_station_bg.png);
+    background-size:100% 150px;
+    height:150px;
+    text-align:center;
+    padding-top: 25px;
+    box-sizing: border-box;
+}
+#cityPageStation_Content2{
+    padding:10px;
+    border-bottom:1px solid #2BC8C6;
+}
+.cityPageStation_Content3Button{
+    font-size:13px!important;
+    width: 100px;
+    padding: 2px 0px;
+    display: inline-block!important;
+    text-align:center;
+    box-sizing: border-box;
+    margin: 0px!important;
+    float:left;
+}
+.cityPageStation_Content3Button:first-child{
+    border-right:1px solid #2BC8C6;
+}
+.cityPageStation_Content3ButtonActive{
+    background-color:#2BC8C6;
+    color:#fff;
+}
+#cityPageStationAQIValue{
+    display: inline-block;
+    color: #fff;
+    font-size: 50px;
+}
+#cityPageStationLevelDiv{
+    display: inline-block;
+    color:#fff;
+    font-size: 13px;
+}
+#cityPageStationLevel{
+    border-radius:5px;
+    padding:0px 5px;
+}
+#cityStationGasChangeBar{
+    font-size:0px;
+    padding:0px;
+    background-color: #fff;
+}
+#cityStationGasChangeBar>div{
+    width:14.285%;
+    display: inline-block;
+    font-size:13px;
+    text-align:center;
+    padding:8px 0px;
+}
+#cityPage_station{
+    background-color: #fff!important;
+}
+#cityPageStation_Content3_GraphOuterDivHour,#cityPageStation_Content3_GraphOuterDivDay{
+    width:100%;
+    height:100px;
+    overflow:auto;
+    margin:5px 0px;
+    margin-bottom:10px;
+}
+#cityPageStation_Content3_GraphHour,#cityPageStation_Content3_GraphDay{
+    height:100px;
+}
+.cityStationGasTableActive{
+    color:#2BC8C6!important;
+    border-bottom:1px solid #2BC8C6;
+}
+.cityStationPage_Content3ButtonActive{
+    background-color:#2BC8C6;
+    color:#fff;
+}
+/*审核*/
+#auditPage{
+    background-color: #fff;
+}
+#auditPage_Content{
+    padding:0px 10px;
+}
+.auditPageContentTitle{
+    /*border-bottom:1px solid #2BC8C6;*/
+    padding:3px 0px;
+}
+.auditPageContentTitle>i{
+    color:#2BC8C6;
+}
+.auditPageContentTitle>span{
+    padding:0px 5px;
+    font-size:16px;
+    color:#545454;
+}
+.auditPageContentStation{
+    padding: 5px 12% 0px;
+}
+.auditPageContentStation>span{
+    color: #000;
+    font-size: 14px;
+}
+.alreadyCompleteLabel{
+    color:#2BC8C6;
+}
+.notyetCompleteLabel{
+    color:#A7A7A7;
+}
+.auditPageContentAqiTitle{
+    float:left;
+    font-size:10px;
+    color:#A7A7A7;
+}
+.auditPageContentAqiLabel{
+    float: left;
+    margin-top: -7px;
+    font-size:31px;
+    margin-right:2px;
+}
+.auditPageContentLevel{
+    font-size: 18px;
+    width: 112px;
+    color: #fff;
+    display: inline-block!important;
+    border-radius: 4px;
+    padding: 2px 0px;
+    text-align: center;
+    margin-left: 13px;
+}
+.auditPageContentAqi,.auditPageContentDetail{
+    padding-left:18px;
+    margin-bottom:17px;
+    margin-top:19.5px;
+}
+.auditPageContentPull{
+    padding-left:18px;
+    margin-bottom:25px;
+    margin-top:10px;
+}
+.auditPageContentPullDetail{
+    font-size: 14px;
+    color: #545454;
+    display: inline-block;
+    border-radius: 3px;
+}
+.auditPageContentDetailStation{
+    font-size:14px;
+    display: inline-block;
+    margin-right:15px;
+}
+.auditPageContentLabel{
+    font-size: 18px!important;
+    margin-top: 6px!important;
+    margin-right: 10px!important;
+    color: #999999;
+    float: right;
+}
+/*预报*/
+#forecastPublishPage,#forecastMapPage,#forecastCityPage,#forecastProvincePage{
+    background-color:#fff;
+}
+#forecastMapPageDateBar{
+    font-size:0px;
+    margin:10px 0px;
+    padding:0px 5px;
+    overflow:hidden;
+}
+#forecastPublishPageQuarBar{
+    font-size:0px;
+    margin-top:10px;
+    padding:0px 5px;
+    overflow:hidden;
+    margin-bottom:10px;
+}
+#forecastPublishPageDateBar{
+    font-size:0px;
+    margin-bottom:10px;
+    padding:0px 5px;
+}
+.forecastMapPageDateItem{
+    display: inline-block;
+    width:25%;
+    font-size:13px;
+    background-color:#fff;
+    box-sizing: border-box;
+    border:1px solid #e0e0e0;
+    text-align: center;
+    padding:5px 0px;
+    float:left;
+}
+.forecastPublishPageQuarItem{
+    display: inline-block;
+    width:50%;
+    font-size:13px;
+    background-color:#fff;
+    box-sizing: border-box;
+    border:1px solid #e0e0e0;
+    text-align: center;
+    padding:7px 0px;
+    float:left;
+}
+.forecastPublishPageQuarItem:first-child{
+    border-right:0px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius:15px;
+}
+.forecastPublishPageQuarItem:last-child{
+    border-top-right-radius: 15px;
+    border-bottom-right-radius:15px;
+}
+.forecastPublishPageDateItem{
+    display: inline-block;
+    width:33.33%;
+    font-size:13px;
+    background-color:#fff;
+    box-sizing: border-box;
+    border:1px solid #e0e0e0;
+    text-align: center;
+    padding:7px 0px;
+}
+.forecastMapPageDateItemActive{
+    background-color:#2BC8C6;
+    color:#fff;
+}
+.forecastPublishPageDateItemActive{
+    background-color:#D2D2D2;
+    color:#fff;
+}
+.forecastPublishPageQuarItemActive{
+    background-color:#2BC8C6;
+    color:#fff;
+}
+#forecastPublishDataTable{
+    width:100%;
+    padding:0px 5px;
+    border-spacing: 0px;
+}
+#forecastPublishDataTable>thead>tr{
+    font-size:0px;
+}
+#forecastPublishDataTable>thead>tr>th{
+    font-size:14px;
+    border: 1px solid #e0e0e0;
+    box-sizing: border-box;
+    text-align: center;
+}
+#forecastMapPageGraph1,#forecastMapPageGraph2{
+    width:100%;
+    height:300px;
+    background-size:100% 300px;
+}
+/*城市预报*/
+#forecastCityPage_Content1{
+    padding:5px;
+}
+#forecastCityPageChooseCity{
+    padding:5px 0px;
+    margin:0px;
+    width:100%;
+    box-sizing: border-box;
+    background-color: #2BC8C6;
+    color:#fff;
+    font-size:14px;
+    font-weight: normal;
+    text-shadow: 0px 0px 0px;
+}
+#forecastCityPage_selectCity{
+    background-color: #2BC8C6;
+    color:#fff;
+    font-size:0px;
+    text-shadow: 0px 0px 0px;
+    width:200px;
+    border-radius:2px;
+    overflow:hidden;
+}
+.forecastCityChooseItem{
+    display: inline-block!important;
+    font-size:14px;
+}
+.forecastCityPage_citySelectRow{
+    font-size:0px;
+    padding:3px 0px;
+}
+.forecastCityPage_citySelectRow>div{
+    width:33.33%;
+    box-sizing:border-box;
+    font-size:13px;
+    display: inline-block;
+    text-align: center;
+    color:#fff;
+}
+.forecastCityPage_citySelectItem{
+    padding:5px 0px;
+}
+#forecastCityPage_Content2{
+    margin:5px;
+    border:1px solid #A7A7A7;
+    border-radius: 7px;
+    padding: 3px;
+    font-size:14px;
+}
+#forecastCityPage_Content2Title{
+    background-color:#E0E0E0;
+    font-size:14px;
+    padding:5px;
+    border-radius: 7px;
+}
+#forecastCityPage_Content2Detail{
+    padding-top:10px;
+}
+#forecastCityPage_timeConfirm{
+    background-color: #2BC8C6;
+    color:#fff;
+    border:0px;
+    border-radius: 3px;
+    padding:5px 10px;
+}
+#forecastCityPageTime1,#forecastCityPageTime2{
+    border-radius: 2px;
+    box-shadow: 0px 0px 0px;
+    border:1px solid #A7A7A7;
+    text-align: center;
+    padding: 4px 0px;
+    border-radius: 5px;
+    width:80px;
+}
+#ForecastTable>tr>td{
+    text-align:center;
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    padding:5px 0px;
+}
+#ForecastTable>tr:nth-child(odd){
+    background-color: #F9F9F9;
+}
+#forecastCityPage_Content2GasChooseBar{
+    font-size:0px;
+    display: inline-block;
+}
+#forecastCityPage_Content2GasChoose{
+    font-size:13px!important;
+    padding:5px;
+    background-color:#2BC8C6;
+    border-radius: 5px;
+    border:1px solid #A7A7A7;
+    display: inline-block;
+}
+.forecastCityPage_Content2GasChooseItem{
+    display: inline-block;
+    font-size:13px!important;
+    padding:5px;
+    background-color:#E0E0E0;
+    border-radius: 5px;
+    border:1px solid #A7A7A7;
+    margin-top:3px;
+    margin-right:3px;
+}
+#forecastCityPage_Content2GasChooseDiv{
+    font-size:0px;
+    margin-top:10px;
+}
+#forecastCityPage_Content2Graph{
+    height:170px;
+    width:100%;
+}
+#forecastCityPage_Content3{
+    margin:5px;
+    border:1px solid #A7A7A7;
+    border-radius: 7px;
+    padding: 3px;
+    font-size:14px;
+}
+#forecastCityPage_Content3Title{
+    background-color:#E0E0E0;
+    font-size:14px;
+    padding:5px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+#table_personal>table{
+    font-size:0px;
+    width:100%;
+    border-spacing: 0px
+}
+#table_personal>table>thead>tr>th{
+    text-align:center;
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    padding:5px 0px;
+}
+#table_personal>table>tbody>tr>td{
+    text-align:center;
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    padding:5px 0px;
+}
+#cityForecastStat{
+    color: rgb(0, 151, 0);
+    text-shadow: 0px 1px 1px gray;
+}
+/*全省预报*/
+#forecastProvinceCityAuditDivDate{
+    border: 1px solid #e0e0e0;
+    width: 120px;
+    padding: 3px 0px;
+    border-radius: 3px;
+}
+#forecastProvinceCityAuditDivTimeBar{
+    margin-bottom:20px;
+    margin-top:20px;
+}
+#forecastProvinceGuideDivTimeBar{
+    margin-bottom:20px;
+    margin-top:20px;
+}
+#forecastProvinceGuideDate{
+    border:1px solid #e0e0e0;
+    width: 120px;
+    padding: 3px 0px;
+    border-radius: 3px;
+}
+#forecastProvinceTopChooseBar{
+    font-size:0px;
+    text-align: center;
+    overflow:hidden;
+    margin-bottom:30px;
+}
+.forecastProvinceTopChooseBarItem{
+    display: inline-block;
+    font-size:14px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    width:50%;
+    border: 1px solid #a7a7a7;
+    padding: 8px 0px;
+    float:left;
+}
+.forecastProvinceTopChooseBarItem:first-child{
+    border-right:0px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.forecastProvinceTopChooseBarItem:last-child{
+    border-right:0px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.forecastProvinceTopChooseBarItemActive{
+    color:#fff;
+    background-color: #2BC8C6;
+}
+#forecastProvinceGuideDivTitle{
+    margin-top:5px;
+    margin-bottom:5px;
+    text-align: center;
+    font-size:14px;
+}
+#forecastProvinceGuideDivSubmit{
+    font-size:14px;
+    border:0px;
+    border-radius: 2px;
+    background-color: #2BC8C6;
+    color:#fff;
+    padding:5px;
+    float: right;
+}
+#forecastProvinceGuideExportWord,#forecastProvinceGuideExportPdf,#forecastProvinceCityAuditExportWord,#forecastProvinceCityAuditExportPdf{
+    font-size:14px;
+    border:0px;
+    border-radius: 3px;
+    background-color: #2BC8C6;
+    color:#fff;
+    padding:5px;
+}
+#forecastProvinceGuideVersion,#forecastProvinceCityAuditVersion{
+    text-align: center;
+    width:100%;
+    font-size:14px;
+}
+#forecastProvinceGuideMessageDiv,#forecastProvinceCityAuditMessageDiv{
+    font-size:0px;
+    margin-bottom:20px;
+    margin-top:20px;
+    overflow:hidden;
+}
+#forecastProvinceGuideMessageLeft,#forecastProvinceCityAuditMessageLeft{
+    width:50%;
+    display: inline-block;
+    text-align: left;
+    font-size: 14px;
+    float:left;
+}
+#forecastProvinceGuideMessageRight,#forecastProvinceCityAuditMessageRight{
+    width:50%;
+    display: inline-block;
+    text-align: right;
+    font-size: 14px;
+}
+#forecastProvinceGuidePerson{
+    width:100px;
+    text-align: center;
+}
+#forecastPublishPageTime{
+    text-align: center;
+    font-size:14px;
+    width:100%;
+}
+#copyToArea{
+    font-size:14px;
+    border:0px;
+    border-radius: 2px;
+    background-color: #2BC8C6;
+    color:#fff;
+    padding:2px 5px;
+}
+.forecastProvincePage_ContentText>label{
+    font-size: 14px!important;
+    background-color: #E0E0E0;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    padding:5px;
+    margin-bottom:0px!important;
+}
+.forecastProvincePage_ContentText>textarea{
+    margin-top:0px!important;
+    resize: none!important;
+    height:200px!important;
+    font-size:14px;
+    margin-bottom:0px!important;
+}
+.forecastProvincePage_ContentText{
+    border:1px solid #A7A7A7;
+    border-radius: 7px;
+    margin-bottom:5px;
+}
+#forecastProvinceTableTitle{
+    font-size: 14px!important;
+    background-color: #2BC8C6;
+    border-radius: 7px;
+    padding:5px;
+    margin-bottom:0px!important;
+    text-align: center;
+}
+#forecastProvinceTable{
+    width:100%;
+}
+#forecastProvinceTable tr{
+    font-size:0px;
+}
+#forecastProvinceTable td{
+    font-size:14px;
+    border:1px solid #A7A7A7;
+    border-spacing: 0px;
+    padding:5px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.forecastProvinceTableTh{
+    background-color: #2BC8C6;
+}
+.forecastProvinceTableThTdLeft{
+    border-right:0px!important;
+    text-align: left;
+}
+.forecastProvinceTableThTdRight{
+    border-left:0px!important;
+    text-align: right;
+}
+.forecastProvinceStatAQI{
+    color: rgb(126,0,35);
+}
+.areaSideDiv{
+    position: absolute;
+    width: 70%;
+    background-color: #2BC8C6;
+    border: 1px solid #a7a7a7;
+    border-bottom-left-radius: 7px;
+    right: 0;
+    font-size: 14px;
+}
+.areaSideDiv>button{
+    position: relative;
+    left: -30px;
+    color: #fff;
+    background-color: rgba(43,200,198,0.6);
+    border: 1px solid #a7a7a7;
+    border-right: 0px;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    padding: 8px;
+    outline: none!important;
+}
+.areaSideDiv>div{
+    margin-top:-50px;
+}
+.areaSideDiv textarea{
+    resize: none!important;
+}
+table{
+    border-collapse: collapse!important;
+}
+textarea{
+    overflow: auto!important;
+}
+#tab2table1{
+    width:100%;
+    margin-top:5px;
+}
+#tab2table1 td,th{
+    font-size:14px!important;
+    border:1px solid #A7A7A7;
+    border-spacing: 0px;
+    padding:5px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.tableName{
+    background-color: #2BC8C6;
+}
+.forecastProvinceAuditTd>div:first-child label{
+    display: inline-block;
+}
+.forecastProvinceAuditTdA1{
+    color:#fff!important;
+    background-color:#2BC8C6!important;
+    border-radius: 3px;
+    text-decoration:none;
+    text-shadow: 0px 0px 0px;
+}
+.forecastProvinceAuditTdA2{
+    color:#fff!important;
+    background-color:#ff0000!important;
+    border-radius: 3px;
+    text-decoration:none;
+    text-shadow: 0px 0px 0px;
+}
+/*审核详情*/
+#auditStationDetail{
+    background-color: #fff;
+}
+#auditStationMenuBar{
+    font-size:0px;
+    background-color: #F1F1F1;
+    overflow:hidden;
+}
+#auditStationMenuBar>div{
+    font-size:14px;
+    display: inline-block;
+    width:50%;
+    text-align: center;
+    padding:10px 0px;
+    float:left;
+}
+.auditStationMenuBarActive{
+    border-bottom:1px solid #2BC8C6;
+    color:#2BC8C6;
+}
+#auditStationHourGraph{
+    width:100%;
+    height:200px;
+}
+#auditStationGasChooseBar{
+    font-size:0px;
+    background-color: #2BC8C6;
+}
+#auditStationGasChooseBar>div{
+    font-size:14px;
+    display: inline-block;
+    width:14.28%;
+    padding:5px 0px;
+    text-align: center;
+}
+#auditStationGasTableHead{
+    font-size:0px;
+    background-color: #2BC8C6;
+    overflow:hidden;
+}
+#auditStationGasTableHead>div{
+    width:25%;
+    box-sizing: border-box;
+    display: inline-block;
+    border-top:1px solid #fff;
+    font-size:14px;
+    padding:5px 0px;
+    text-align: center;
+    color:#fff;
+    float:left;
+}
+#auditStationGasTableHead>div:nth-child(1){
+    border-right:1px solid #fff;
+}
+#auditStationGasTableHead>div:nth-child(2){
+    border-right:1px solid #fff;
+}
+#auditStationGasTableHead>div:nth-child(3){
+    border-right:1px solid #fff;
+}
+.auditStationGasChooseBarActive{
+    color:#fff;
+}
+#auditStationDetail_selectCity{
+    background-color: #2BC8C6;
+    width:250px;
+}
+.auditStationDetail_citySelectItem{
+    padding:3px 0px;
+}
+#auditStationDetailChooseCity,#auditStationDetailChooseStation{
+    color: #fff;
+    background-color: #2BC8C6;
+    border: 1px solid #c5c5c5;
+    border-radius: 4px;
+    margin-top: 5px!important;
+    padding: 3px;
+    font-size: 15px!important;
+    outline: none;
+    text-shadow: 0px 0px 0px;
+    font-weight: normal;
+}
+#auditStationDetailTopList{
+    color: #fff;
+    background-color: #2BC8C6;
+    border: 0px;
+    border-radius: 4px;
+    margin-top: 5px!important;
+    padding: 3px;
+    font-size: 13px!important;
+    outline: none;
+    text-shadow: 0px 0px 0px;
+    font-weight: normal;
+    box-shadow: 0px 0px 0px;
+}
+#auditStationHourGraphMarkButton{
+    background-color: rgba(0,0,0,0.2);
+    position: absolute;
+    margin-top: -80px;
+    color: #fff;
+    padding: 10px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-size: 14px;
+}
+#auditStationHourGraphMarkDiv{
+    width:100%;
+    height:300px;
+    position: absolute;
+    background-color: #fff;
+    left: -100%;
+}
+.auditStationGraphMarkRow{
+    font-size:0px;
+}
+.auditStationGraphMarkItem{
+    width:33.33%;
+    display: inline-block;
+    padding:3px;
+    border:3px solid #fff;
+    box-sizing: border-box;
+    font-size:14px;
+    text-align: center;
+}
+#auditStationGasTableBodyOutDiv{
+    width:100%;
+    overflow: auto;
+}
+#auditStationGasTableBody{
+    width:100%;
+}
+#auditStationGasTableBody tr{
+    padding:5px 0px;
+}
+.auditStationTableTr{
+    font-size:0px;
+}
+.auditStationTableTr>td{
+    font-size:14px;
+    display: inline-block;
+    width:25%;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+.auditStationTableGasTd{
+    padding:0px 8px;
+    width:100%;
+}
+.auditStationTableGasTd>label{
+    border-radius: 5px;
+    color:#fff;
+}
+.auditStationTableTr{
+    display: block;
+    padding-bottom:3px;
+    border-bottom:1px solid #A7A7A7;
+}
+#auditStationDetail_topList{
+    background-color: #2BC8C6;
+}
+#auditStationDetail_topList>div{
+    padding:5px 10px;
+    color:#fff;
+    border-bottom:1px solid #A7A7A7;
+    font-size:14px;
+}
+#auditStationDetail_topList>div:last-child{
+    border-bottom:0px!important;
+}
+#auditStationAuditMenuBar{
+    margin-top:1px;
+    margin-bottom:1px;
+    font-size:0px;
+    background-color: #F1F1F1;
+    overflow:hidden;
+}
+#auditStationAuditMenuBar>div{
+    font-size:14px;
+    display: inline-block;
+    width:50%;
+    text-align: center;
+    padding:10px 0px;
+    float:left;
+}
+.auditStationAuditMenuBarActive{
+    background-color:#2BC8C6;
+    color:#fff;
+}
+#auditStationAuditTable{
+    width:100%;
+    background-color: #fff;
+}
+#auditStationAuditTable>thead>tr>th{
+    border:0px;
+    font-size:14px!important;
+    font-weight: normal;
+    width:14.28%;
+}
+#auditStationAuditTable>thead>tr{
+    border-bottom:1px solid #A7A7A7;
+}
+#auditStationAuditTable>tbody>tr>td{
+    font-size:14px!important;
+    font-weight: normal;
+    width:14.28%;
+    text-align:center;
+    padding: 5px 0px;
+    border:1px solid #fff;
+}
+#filterContent{
+    padding-left:100px;
+}
+#auditPopDiv{
+    position: absolute;
+    margin-top: -79px;
+    background-image: url(../img/backGround/kuang.png);
+    background-size: 66px 53px;
+    width: 66px;
+    height: 53px;
+    box-sizing: border-box;
+}
+#auditPopDiv>div:first-child{
+    padding:5px;
+    padding-top:2px;
+    padding-bottom:1px;
+}
+#auditPopDiv>div:last-child{
+    padding:5px;
+    padding-top:1px;
+    padding-bottom:13px;
+}
+#auditPopDivBack{
+    position: absolute;
+    width:100%;
+    height:100%;
+    display: none;
+}
+#auditEachDataContent{
+    padding-left:10px;
+}
+#auditEachWorkDataContent{
+    padding-left:5px;
+    padding-right:5px;
+}
+#auditEachWorkDataContent label{
+    font-size:14px!important;
+    display: inline-block;
+}
+.disableInputAndLabel{
+    color:#A7A7A7!important;
+}
+#auditStationDetail_selectStation{
+    background-color: #2BC8C6;
+}
+.stationDetailStationListItem{
+    color:#fff;
+    font-size:14px;
+    border-bottom:1px solid #fff;
+    padding:3px;
+}
+.submitBtn{
+    background-color: #2BC8C6;
+    color:#fff;
+    border:0px;
+    border-radius:7px;
+    padding:5px 10px;
+}
+#forecastProvinceCityAuditDivTitle{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+.cityForecastMustInput{
+    width: 50px;
+    border-radius: 5px;
+    border: 1px solid #a7a7a7;
+    text-align: center;
+}
+#areaInfPublish{
+    padding:0px 10px;
+}
+.cityGraphDayDiv{
+    border-top:1px solid #a7a7a7;
+    border-left:1px solid #a7a7a7;
+    border-bottom:1px solid #a7a7a7;
+    box-sizing: border-box;
+}
+.cityGraphDayDiv{
+    display: inline-block;
+    height:120px;
+    vertical-align: top;
+    overflow: hidden;
+}
+.cityGraphDayDataDiv{
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left:1px;
+    margin-right:1px;
+}
+.cityGraphDayDivTime{
+    font-size:12px!important;
+    margin:0px!important;
+}
+.cityGraphDayDataDivBlank{
+    background-color:rgba(0,0,0,0);
+    width:0px;
+    height:103px;
+    display:inline-block;
+}
+.cityGraphDateLabelTooltipArrow,.waterGraphDateLabelTooltipArrow{
+    text-align: right;
+    margin:0px!important;
+    margin-top:-25px!important;
+    font-size:20px!important;
+    padding-right:10px;
+    color: #2BC8C6;
+}
+#cityGraphDateLabelTooltip,#waterGraphDateLabelTooltip{
+    padding-right:3px;
+    text-align: right;
+    margin:0px;
+    margin-top: -13px;
+}
+#cityGraphDateLabelTooltip>span,#waterGraphDateLabelTooltip>span{
+    height: 10px;
+    border-radius: 5px;
+    background-color: #2BC8C6;
+    color:#fff;
+    font-size:12px;
+    border:0px;
+    padding:1px 10px;
+}
+.cityGraphDayDataDivActive,.waterGraphDayDataDivActive{
+    border:2px solid #000;
+}
+.cityGraphDayDivButtom,.waterGraphDayDivButtom{
+    overflow:hidden;
+}
+
+.spanActive{
+    color: #fff;
+    display: inline-block;
+    padding: 5px 0px;
+    width: 100px;
+    margin-right: -3px;
+}
+.spanShow{
+    border-bottom:3px solid #e0ef23;
+    cursor:pointer;
+    color: #e0ef23;
+}
+
+#water_infomationPage_Content1{
+    background-color:#2BC8C6;
+    color:#fff;
+    padding:20px;
+}
+#water_infomationPage_Content1Head{
+    font-size:18px;
+    margin-bottom:18px;
+}
+#water_infomationPage_Content1Body{
+    margin-bottom:5px;
+    text-indent:2em
+}
+#water_infomationPage_Content1Body>label{
+    font-size:13px!important;
+}
+#water_infomationPage_Content1Body>label:first-child{
+    margin-bottom:14.5px;
+}
+#water_infomationPage_Content1Footer{
+    height:26px;
+}
+#water_infomationPage_Content1FooterButton{
+    font-size:13px;
+    border:2px solid #fff;
+    float:right;
+    text-align: center;
+    padding: 1px -7px;
+    border-radius:4px;
+    width:81px;
+    height:20px;
+    box-sizing: border-box;
+}
+
+#water_infomationPage_Content2{
+    padding:20px;
+}
+

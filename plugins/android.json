@@ -1,0 +1,46 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.spout.phonegap.plugins.baidulocation": {
+            "PACKAGE_NAME": "com.example.scnewairPub"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.example.scnewairPub"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.example.scnewairPub"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.example.scnewairPub"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.example.scnewairPub"
+        },
+        "jpush-phonegap-plugin": {
+            "API_KEY": "a06968c78dd00b64d68073cc",
+            "PACKAGE_NAME": "com.example.scnewairPub"
+        },
+        "cordova-plugin-crosswalk-webview": {
+            "XWALK_VERSION": "21+",
+            "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
+            "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
+            "XWALK_MODE": "embedded",
+            "XWALK_MULTIPLEAPK": "true",
+            "PACKAGE_NAME": "com.example.scnewairPub"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.example.scnewairPub"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.example.scnewairPub"
+        }
+    }
+}

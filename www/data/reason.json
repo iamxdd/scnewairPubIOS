@@ -1,0 +1,139 @@
+[
+    {
+        "H":{
+            "id": 1,
+            "information": "有效数据不足",
+            "mark": "H"
+        },
+        "W":{
+            "id": 2,
+            "information": "等待数据恢复",
+            "mark": "W"
+        },
+        "BB":{
+            "id": 3,
+            "information": "连接不良",
+            "mark": "BB"
+        },
+        "D":{
+            "id": 4,
+            "information": "分析仪器离线",
+            "mark": "D"
+        },
+        "B":{
+            "id": 5,
+            "information": "运行不良",
+            "mark": "B"
+        },
+        "R":{
+            "id": 6,
+            "information": "数据突变",
+            "mark": "R"
+        },
+        "r":{
+            "id": 7,
+            "information": "数据不变",
+            "mark": "r"
+        },
+        "PZ":{
+            "id": 10,
+            "information": "零点检查",
+            "mark": "PZ"
+        },
+        "PS":{
+            "id": 11,
+            "information": "跨度检查",
+            "mark": "PS"
+        },
+        "AS":{
+            "id": 12,
+            "information": "精度检查",
+            "mark": "AS"
+        },
+        "CZ":{
+            "id": 13,
+            "information": "零点校准",
+            "mark": "CZ"
+        },
+        "CS":{
+            "id": 14,
+            "information": "跨度校准",
+            "mark": "CS"
+        },
+        "TZS":{
+            "id": 15,
+            "information": "检定零点漂移",
+            "mark": "TZS"
+        },
+        "TSS":{
+            "id": 16,
+            "information": "检定跨度漂移",
+            "mark": "TSS"
+        },
+        "TSL":{
+            "id": 17,
+            "information": "检定多点跨度（线性）",
+            "mark": "TSL"
+        },
+        "TSR":{
+            "id": 18,
+            "information": "检定跨度重现性",
+            "mark": "TSR"
+        },
+        "RM":{
+            "id": 19,
+            "information": "无效数据",
+            "mark": "RM"
+        },
+        "ZO":{
+            "id": 20,
+            "information": "已修正数据",
+            "mark": "ZO"
+        },
+        "PSB":{
+            "id": 21,
+            "information": "跨度检查不通过",
+            "mark": "PSB"
+        },
+        "HSp":{
+            "id": 22,
+            "information": "数据超上限",
+            "mark": "HSp"
+        },
+        "LSp":{
+            "id": 23,
+            "information": "数据超下限",
+            "mark": "LSp"
+        },
+        "OL":{
+            "id": 24,
+            "information": "离群值",
+            "mark": "OL"
+        },
+        "DG":{
+            "id": 25,
+            "information": "PM2.5与PM10倒挂",
+            "mark": "DG"
+        },
+        "FC":{
+            "id": 26,
+            "information": "浮尘天气",
+            "mark": "FC"
+        },
+        "JG":{
+            "id": 27,
+            "information": "秸秆燃烧",
+            "mark": "JG"
+        },
+        "ZWR":{
+            "id": 28,
+            "information": "重污染天气",
+            "mark": "ZWR"
+        },
+        "ZK":{
+            "id": 29,
+            "information": "质量控制",
+            "mark": "ZK"
+        }
+    }
+]

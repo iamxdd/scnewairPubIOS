@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/indexPub.css">
+        <link rel="stylesheet" type="text/css" href="css/fontAwesome/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/jqm/jquery.mobile-1.4.5.min.css">
+        <link rel="stylesheet" type="text/css" href="js/plugin/swiper/swiper.min.css">
+        <link rel="stylesheet" type="text/css" href="js/plugin/mobiscroll/css/mobiscroll.custom-2.5.0.min.css">
+        <link rel="stylesheet" type="text/css" href="css/video/video-js.min.css">
+        <link rel="stylesheet" type="text/css" href="css/icon/iconApp.css">
+        <link rel="stylesheet" type="text/css" href="css/icon.css">
+        <link rel="stylesheet" type="text/css" href="css/newicon/newicon.css">
+        <link rel="stylesheet" type="text/css" href="css/function.css">
+        <link rel="stylesheet" type="text/css" href="css/striIcon/iconfont.css">
+        <link rel="stylesheet" type="text/css" href="js/plugin/html5-time-150220105758/css/mobiscroll.custom-2.6.2.min.css"  />
+        <title>环境质量网络管理平台</title>
+    </head>
+    <body onload="tool.onDeviceReady()">
+        <div data-role="page" id="loginPage">
+            <div id="loginPage_Content" data-role="content" class="ui-content has-footer" >
+            </div>
+        </div>
+        <div data-role="page" id="indexPage" data-dom-cache="true">
+            <!--首页header-->
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">
+                <!--刷新按钮-->
+                <button data-role="none" class="indexHeaderButton provinceOnly" id="indexPageRefresh"><i class="iconNew-listRefresh"></i></button>
+                <span class="headerTitle" id="indexPageHeaderName">四川省环境质量地图</span>
+                <!--右侧按钮-->
+                <a id="indexPageShareButton" data-rel="popup" href="#indexPage_ShareList" class="ui-btn ui-corner-all ui-shadow ui-btn-inline headerButtonA" data-transition="pop"><i class="iconNew-listTopRight"></i></a>
+                <!--右侧按钮点击弹出框-->
+                <div data-role="popup" id="indexPage_ShareList" class="headerSharePopDiv">
+                    <div class="sharePop_shareThisPage"><i class="icon icon-share"></i>分享</div>
+                    <div class="sharePop_settingThisPage"><i class="iconApp-Setting"></i>设置</div>
+                    <div class="sharePop_messageThisPage"><i class="iconNew-timeAndMessage"></i>说明</div>
+                </div>
+            </div>
+            <!--首页内容栏-->
+            <div data-role="content" class="ui-content has-footer">
+                <div id="indexMapChooseBar" class="topBarFixed">
+                    <!--<div type="environmentmap">环境质量</div>-->
+                    <div type="airmap" class="indexMapActive">空气质量</div>
+                    <div type="watermap">水质量</div>
+                </div>
+                <!--污染物切换选项卡-->
+                <div id="indexGasChangeBar" class="topBarFixed80">
+                    <div gas="AQI">AQI</div>
+                    <div gas="SO2">SO<sub>2</sub></div>
+                    <div gas="NO2">NO<sub>2</sub></div>
+                    <div gas="CO">CO</div>
+                    <div gas="O3">O<sub>3</sub></div>
+                    <div gas="PM10">PM<sub>10</sub></div>
+                    <div gas="PM2_5">PM<sub>2.5</sub></div>
+                </div>
+                <div id="indexWaterChangeBar" class="topBarFixed80">
+                    <div water="type">水质类别</div>
+                    <div water="总磷">总磷</div>
+                    <div water="氨氮">氨氮</div>
+                    <div water="高锰酸盐指数">高锰酸盐指数</div>
+                    <div water="溶解氧">溶解氧</div>
+                </div>
+                <!--水气地图-->
+                <div id="indexEnvMap"></div>
+                <!--空气地图-->
+                <div id="indexPageMap"></div>
+                <!--水质地图-->
+                <div id="indexWaterMap"></div>
+                <!--空气地图时间标注-->
+                <div id="indexPageMapTime">实时更新的时间</div>
+                <div id="waterindexPageMapTime">实时更新的时间</div>
+                <div id="indexPageType"><img src="img/backGround/airsub.png"></div>
+                <!--水质地图站点标注-->
+                <div id="WaterMapSiteBar"><img src="img/backGround/watersite.png"></div>
+                <!--空气污染程度指示卡-->
+                <div id="indexPageMapMarkBar"></div>
+                <!--空气子级站点切换标志-->
+                <div id="subSiteChange"><img class='subSite' src="img/mapParam/every.png"/></div>
+                <!--水质污染程度指示卡-->
+                <div id="WaterMapMarkBar"></div>
+                <div id="maping">
+                    <img src="img/await.png">
+                </div>
+                <!--<div id="airDetail">点击查看大气城市详情</div>-->
+            </div>
+            <!--底部选项卡-->
+            <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <!--5个选项li-->
+                <ul class="footerMenuUl"></ul>
+            </div>
+        </div>
+        <!--所在城市-->
+        <div data-role="page" id="cityPage" data-dom-cache="true">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">
+                <a data-rel="back" class="backButtonA" data-transition="slide" data-direction="reverse"><i class="icon-angle-left"></i></a>
+                <span class="headerTitle" id="cityPage_cityName">成都</span>
+                <a id="cityPageShareButton" data-rel="popup" href="#cityPage_ShareList" class="ui-btn ui-corner-all ui-shadow ui-btn-inline headerButtonA" data-transition="pop"><i class="iconNew-listTopRight"></i></a>
+                <div data-role="popup" id="cityPage_ShareList" class="headerSharePopDiv">
+                    <div class="sharePop_shareThisPage"><i class="icon icon-share"></i>分享</div>
+                    <div class="sharePop_settingThisPage"><i class="iconApp-Setting"></i>设置</div>
+                    <div class="sharePop_messageThisPage"><i class="iconNew-timeAndMessage"></i>说明</div>
+                </div>
+            </div>
+            <div data-role="content" class="ui-content has-footer">
+                <div id="cityPage_Content1">
+                    <div id="citypage_Content1Time"></div>
+                    <div id="citypage_Content1AQIDiv">
+                        <div id="citypage_Content1AQI" class="numberFontFamily"></div>
+                        <div id="citypage_Content1AQITitleDiv">
+                            <div id="citypage_Content1AQITitle">AQI</div>
+                            <div id="citypage_Content1AQILevel">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div><br/>
+                    <div id="citypage_Content1AQIPull"></div>
+                </div>
+                <div id="waterPage_Content1">
+                    <div id="waterPage_Content1Time"></div>
+                    <div id="waterPage_stationStatu">站点状态 <span></span></div>
+                    <div id="waterPage_level">
+                        <img src="" alt="" id="waterlevelImg">
+                    </div>
+                </div>
+                <div id="cityPage_Content2">
+                    <label class="cityPage_Content2Title"><i class="iconApp-trashBin striLabelIcon"></i><span>污染物单位</span><span style="font-size:12px">(CO:mg/m³ 其他μg/m³)</span></label>
+                    <div class="cityPage_Content2Row" style="margin-bottom:2px">
+                        <div class="cityPage_Content2Item">
+                            <label class="cityPage_Content2ItemTitle">SO<sub>2</sub></label>
+                            <label class="cityPage_Content2ItemValue" id="cityPage_Content2ItemSO2"></label>
+                            <div class="cityPage_Content2ItemBarBack" id="cityPage_Content2ItemSO2BarBack">
+                                <div class="cityPage_Content2ItemBar" id="cityPage_Content2ItemSO2Bar"></div>
+                            </div>
+                        </div>
+                        <div class="cityPage_Content2Item">
+                            <label class="cityPage_Content2ItemTitle">NO<sub>2</sub></label>
+                            <label class="cityPage_Content2ItemValue" id="cityPage_Content2ItemNO2"></label>
+                            <div class="cityPage_Content2ItemBarBack" id="cityPage_Content2ItemNO2BarBack">
+                                <div class="cityPage_Content2ItemBar" id="cityPage_Content2ItemNO2Bar"></div>
+                            </div>
+                        </div>
+                        <div class="cityPage_Content2Item">
+                            <label class="cityPage_Content2ItemTitle">CO</label>
+                            <label class="cityPage_Content2ItemValue" id="cityPage_Content2ItemCO"></label>
+                            <div class="cityPage_Content2ItemBarBack" id="cityPage_Content2ItemCOBarBack">
+                                <div class="cityPage_Content2ItemBar" id="cityPage_Content2ItemCOBar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cityPage_Content2Row">
+                        <div class="cityPage_Content2Item">
+                            <label class="cityPage_Content2ItemTitle">O<sub>3</sub></label>
+                            <label class="cityPage_Content2ItemValue" id="cityPage_Content2ItemO3"></label>
+                            <div class="cityPage_Content2ItemBarBack" id="cityPage_Content2ItemO3BarBack">
+                                <div class="cityPage_Content2ItemBar" id="cityPage_Content2ItemO3Bar"></div>
+                            </div>
+                        </div>
+                        <div class="cityPage_Content2Item">
+                            <label class="cityPage_Content2ItemTitle">PM<sub>2.5</sub></label>
+                            <label class="cityPage_Content2ItemValue" id="cityPage_Content2ItemPM2_5"></label>
+                            <div class="cityPage_Content2ItemBarBack" id="cityPage_Content2ItemPM2_5BarBack">
+                                <div class="cityPage_Content2ItemBar" id="cityPage_Content2ItemPM2_5Bar"></div>
+                            </div>
+                        </div>
+                        <div class="cityPage_Content2Item">
+                            <label class="cityPage_Content2ItemTitle">PM<sub>10</sub></label>
+                            <label class="cityPage_Content2ItemValue" id="cityPage_Content2ItemPM10"></label>
+                            <div class="cityPage_Content2ItemBarBack" id="cityPage_Content2ItemPM10BarBack">
+                                <div class="cityPage_Content2ItemBar" id="cityPage_Content2ItemPM10Bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="waterPage_Content2">
+                    <label class="waterPage_Content2Title"><i class="iconApp-trashBin striLabelIcon"></i><span>污染物单位</span><span style="font-size:12px"> ( mg/L )</span></label>
+                    <div class="waterPage_Content2Row" style="margin-bottom:2px">
+                        <div class="waterPage_Content2Item">
+                            <label class="waterPage_Content2ItemTitle">总磷</label>
+                            <label class="waterPage_Content2ItemValue" id="phosphorusValue"></label>
+                            <div class="waterPage_Content2ItemBarBack" id="waterPage_Content2PhosphorusItemBarBack">
+                                <div class="waterPage_Content2ItemBar" id="waterPage_Content2ItemPhosphorusBar"></div>
+                            </div>
+                        </div>
+                        <div class="waterPage_Content2Item">
+                            <label class="waterPage_Content2ItemTitle">氨氮</label>
+                            <label class="waterPage_Content2ItemValue" id="ammoniaValue"></label>
+                            <div class="waterPage_Content2ItemBarBack" id="waterPage_Content2ItemAmmoniaBarBack">
+                                <div class="waterPage_Content2ItemBar" id="waterPage_Content2ItemAmmoniaBar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="waterPage_Content2Row">
+                        <div class="waterPage_Content2Item">
+                            <label class="waterPage_Content2ItemTitle">高锰酸盐指数</label>
+                            <label class="waterPage_Content2ItemValue" id="potassiumRateValue"></label>
+                            <div class="waterPage_Content2ItemBarBack" id="waterPage_Content2ItemPotassiumRateBarBack">
+                                <div class="waterPage_Content2ItemBar" id="waterPage_Content2ItemPotassiumRateBar"></div>
+                            </div>
+                        </div>
+                        <div class="waterPage_Content2Item">
+                            <label class="waterPage_Content2ItemTitle">溶解氧</label>
+                            <label class="waterPage_Content2ItemValue" id="dissolvedValue"></label>
+                            <div class="waterPage_Content2ItemBarBack" id="waterPage_Content2ItemDissolvedBarBack">
+                                <div class="waterPage_Content2ItemBar" id="waterPage_Content2ItemDissolvedBar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="cityPage_Content3">
+                    <label class="cityPage_Content2Title"><i class="iconApp-love striLabelIcon"></i><span>温馨小贴士</span></label>
+                    <label id="cityPage_Content3Tips"></label>
+                </div>
+                <div id="cityPage_Content4">
+                    <label class="cityPage_Content4Title"><i class="iconNew-barGraph striLabelIcon"></i><span>历史数据</span></label>
+                    <div class="cityPage_Content4ButtonOuterDiv">
+                        <div class="cityPage_Content4ButtonDiv">
+                            <label class="cityPage_Content4Button cityPage_Content4ButtonActive" datatype="hour">小时数据</label>
+                            <label class="cityPage_Content4Button" datatype="day">日数据</label>
+                        </div>
+                    </div>
+                    <div id="cityPage_Content4_GraphOuterDivHour">
+                        <div id="cityPage_Content4_GraphHour"></div>
+                    </div>
+                    <div id="cityPage_Content4_GraphOuterDivDay">
+                        <div id="cityPage_Content4_GraphDay"></div>
+                    </div>
+                </div>
+                <label data-role="none" class="cityGraphDateLabelTooltipArrow"><i class="icon-caret-up"></i></label>
+                <label data-role="none" id="cityGraphDateLabelTooltip"><span></span></label>
+                <div id="cityGasChangeBar">
+                    <div gas="AQI">AQI</div>
+                    <div gas="SO2">SO<sub>2</sub></div>
+                    <div gas="NO2">NO<sub>2</sub></div>
+                    <div gas="CO">CO</div>
+                    <div gas="O3">O<sub>3</sub></div>
+                    <div gas="PM10">PM<sub>10</sub></div>
+                    <div gas="PM2_5">PM<sub>2.5</sub></div>
+                </div>
+                <div id="cityPage_Content5">
+                    <label class="cityPage_Content4Title" style="border-top: 1px solid #2BC8C6;margin-top:3px;"><i class="iconNew-listmap striLabelIcon"></i><span>实时数据</span><span style="font-size:12px">(AQI无量纲 CO:mg/m³其他μg/m³)</span></label>
+                    <div id="cityPageMap"></div>
+                </div>
+                <div id="cityPage_Content6">
+                    <!--<div id="cityTpyeChooseBar">-->
+                        <!--<div type="country">国控城市</div>-->
+                        <!--<div type="province">省控城市</div>-->
+                        <!--<div type="countryside">省控农村</div>-->
+                    <!--</div>-->
+                   <!-- <div id="cityGasTableChangeBar">
+                        <div gas="AQI">AQI</div>
+                        <div gas="SO2">SO<sub>2</sub></div>
+                        <div gas="NO2">NO<sub>2</sub></div>
+                        <div gas="CO">CO</div>
+                        <div gas="O3">O<sub>3</sub></div>
+                        <div gas="PM10">PM<sub>10</sub></div>
+                        <div gas="PM2_5">PM<sub>2.5</sub></div>
+                    </div>-->
+                    <div id="cityGasTable">
+
+                    </div>
+                </div>
+                <div id="waterPage_Content4">
+                    <label class="cityPage_Content4Title"><i class="iconNew-barGraph striLabelIcon"></i><span>历史数据</span></label>
+                    <div class="waterPage_Content4ButtonOuterDiv">
+                        <div class="waterPage_Content4ButtonDiv">
+                            <label class="waterPage_Content4Button" datatype="hour">小时数据</label>
+                            <label class="waterPage_Content4Button waterPage_Content4ButtonActive" datatype="day">日数据</label>
+                        </div>
+                    </div>
+                    <div id="waterPage_Content4_GraphOuterDivHour">
+                        <div id="waterPage_Content4_GraphHour"></div>
+                    </div>
+                    <div id="waterPage_Content4_GraphOuterDivDay">
+                        <div id="waterPage_Content4_GraphDay"></div>
+                    </div>
+                </div>
+                <label data-role="none" class="waterGraphDateLabelTooltipArrow"><i class="icon-caret-up"></i></label>
+                <label data-role="none" id="waterGraphDateLabelTooltip"><span></span></label>
+                <div id="waterPage_Content5">
+                    <div id="waterChangeBar">
+                        <div water="type">WQI</div>
+                        <div water="总磷">总磷</div>
+                        <div water="氨氮">氨氮</div>
+                        <div water="高锰酸盐指数">高锰酸盐指数</div>
+                        <div water="溶解氧">溶解氧</div>
+                    </div>
+                    <label class="cityPage_Content4Title" style="border-top: 1px solid #2BC8C6;margin-top:3px;"><i class="iconNew-listmap striLabelIcon"></i><span>站点信息</span></label>
+                    <div id="waterDetailPageMap"></div>
+                </div>
+                <!--<div id="waterPage_Content6">-->
+
+                <!--</div>-->
+            </div>
+            <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <ul class="footerMenuUl"></ul>
+            </div>
+        </div>
+        <div data-role="page" id="waterPage" data-dom-cache="true">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">
+                <a data-rel="back" class="backButtonA" data-transition="slide" data-direction="reverse"><i class="icon-angle-left"></i></a>
+                <span class="headerTitle" id="waterPage_cityName">成都</span>
+                <a id="waterPageShareButton" data-rel="popup" href="#cityPage_ShareList" class="ui-btn ui-corner-all ui-shadow ui-btn-inline headerButtonA" data-transition="pop"><i class="iconNew-listTopRight"></i></a>
+                <div data-role="popup" id="waterPage_ShareList" class="headerSharePopDiv">
+                    <div class="sharePop_shareThisPage"><i class="icon icon-share"></i>分享</div>
+                    <div class="sharePop_settingThisPage"><i class="iconApp-Setting"></i>设置</div>
+                    <div class="sharePop_messageThisPage"><i class="iconNew-timeAndMessage"></i>说明</div>
+                </div>
+            </div>
+        </div>
+        <!--测管协同页面-->
+        <div data-role="page" id="auditPage" data-dom-cache="true">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">
+                <span class="headerbtn1" datatype="air">空气质量</span>
+                <span class="headerbtn2" datatype="water">水环境</span>
+                <a id="auditPageShareButton" data-rel="popup" href="#auditPage_ShareList" class="ui-btn ui-corner-all ui-shadow ui-btn-inline headerButtonA ui-btn-right" data-transition="pop"><i class="iconNew-listTopRight"></i></a>
+                <div data-role="popup" id="auditPage_ShareList" class="headerSharePopDiv">
+                    <div class="sharePop_shareThisPage"><i class="icon icon-share"></i>分享</div>
+                    <div class="sharePop_settingThisPage"><i class="iconApp-Setting"></i>设置</div>
+                    <div class="sharePop_messageThisPage"><i class="iconNew-timeAndMessage"></i>说明</div>
+                </div>
+            </div>
+            <div data-role="content" class="ui-content has-footer">
+                <div id="typeChooseBar">
+                    <div dataType="AbnormalCount" class="AbnormalChooseActive">异常汇总</div>
+                    <div dataType="AbnormalSituation">市州异常情况</div>
+                </div>
+                <div id="auditPage_Content">
+
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <ul class="footerMenuUl"></ul>
+            </div>
+        </div>
+        <div data-role="page" id="abnormalSubPage" data-dom-cache="true">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">
+                <a data-rel="back" class="backButtonA" data-transition="slide" data-direction="reverse"><i class="icon-angle-left"></i></a>
+                <span class="headerTitle" id="abnormalSubTitle">异常数据列表</span>
+            </div>
+            <div data-role="content" class="ui-content has-footer">
+                <div id="typeChooseBar1">
+                    <div dataType="country" class="AbnormalChooseActive">国控</div>
+                    <div dataType="province">省控</div>
+                </div>
+                <div id="abnormalSubPage_content">
+
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <ul class="footerMenuUl"></ul>
+            </div>
+        </div>
+        <div data-role="page" id="abnormalPage" data-dom-cache="true">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">
+                <a data-rel="back" class="backButtonA" data-transition="slide" data-direction="reverse"><i class="icon-angle-left"></i></a>
+                <span data-role="none" class="headerTitle" id="abnormalTypeName"></span>
+            </div>
+            <div data-role="content" class="ui-content has-footer">
+                <div id="abnormaltypeChooseBar">
+
+                </div>
+                <div id="abnormalPage_Content">
+
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <ul class="footerMenuUl"></ul>
+            </div>
+        </div>
+        <!--异常数据列表-->
+        <div data-role="page" id="citylistPage" data-dom-cache="true">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">
+                <a data-rel="back" class="backButtonA" data-transition="slide" data-direction="reverse"><i class="icon-angle-left"></i></a>
+                <span class="headerTitle">异常数据列表</span>
+            </div>
+            <div data-role="content" class="ui-content has-footer">
+                <div id="citylistPage_content">
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <ul class="footerMenuUl"></ul>
+            </div>
+        </div>
+        <!--X市异常数据-->
+        <div data-role="page" id="sitelistPage" data-dom-cache="true">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">
+                <a data-rel="back" class="backButtonA" data-transition="slide" data-direction="reverse"><i class="icon-angle-left"></i></a>
+                <span class="headerTitle">异常数据</span>
+            </div>
+            <div data-role="content" class="ui-content has-footer">
+                <div id="sitelistChooseBar">
+
+                </div>
+                <div id="sitelistPage_content">
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <ul class="footerMenuUl"></ul>
+            </div>
+        </div>
+        <!--X市异常站点信息-->
+        <div data-role="page" id="siteDetailPage" data-dom-cache="true">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">
+                <!--<a data-role="button" data-inline="true" data-icon="arrow-l" data-transition="slide" data-direction="reverse" data-iconpos="notext" onclick="history.go(-1);"></a>-->
+                <a data-rel="back" class="backButtonA" data-transition="slide" data-direction="reverse"><i class="icon-angle-left"></i></a>
+                <span class="headerTitle">异常数据详情</span>
+            </div>
+            <div data-role="content" class="ui-content has-footer">
+                <div id="siteDetailPage_content">
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <ul class="footerMenuUl"></ul>
+            </div>
+        </div>
+        <!--数据审核页-->
+        <div data-role="page" id="dataAuditPage">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">
+                <span class="headerTitle">全省市州站状态</span>
+            </div>
+            <div data-role="content" class="ui-content">
+                <div id="dataAuditPage_Content">
+                </div>
+            </div>
+            <!--<div data-role="content" class="ui-content" style="width: 100%;height: 640px;text-align: center">
+                <img src="img/await.png" alt="图片加载失败" style="margin-top: 50%;width: 35%">
+            </div>-->
+            <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <ul class="footerMenuUl"></ul>
+            </div>
+        </div>
+        <!--审核详情-->
+        <div data-role="page" id="auditStationDetail">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">
+                <a data-rel="back" class="backButtonA" data-transition="slide" data-direction="reverse"><i class="icon-angle-left"></i></a>
+                <span class="headerTitle" id="auditStationName">成都市</span>
+                <a id="auditStationDetailChooseCity" data-rel="popup" href="#auditStationDetail_selectCity" class="provinceOnly ui-btn ui-corner-all ui-shadow ui-btn-inline" data-transition="pop"><i class="iconNew-listcity"></i></a>
+                <div data-role="popup" id="auditStationDetail_selectCity">
+                </div>
+            </div>
+            <div data-role="content" class="ui-content">
+                <div id="auditStationMenuBar">
+                    <div type="city">城市站点</div>
+                    <div type="county">农村站点</div>
+                </div>
+                <div id="auditStationHourGraph"></div>
+                <div id="auditStationHourGraphMarkButton" type="0">图例</div>
+                <div id="auditStationHourGraphMarkDiv"></div>
+                <div id="auditStationGasChooseBar">
+                    <div gas="AQI" class="auditStationGasChooseBarActive">AQI</div>
+                    <div gas="SO2">SO<sub>2</sub></div>
+                    <div gas="NO2">NO<sub>2</sub></div>
+                    <div gas="CO">CO</div>
+                    <div gas="O3">O<sub>3</sub></div>
+                    <div gas="PM10">PM<sub>10</sub></div>
+                    <div gas="PM2_5">PM<sub>2.5</sub></div>
+                </div>
+                <div id="auditStationGasTableHead">
+                    <div>站点</div>
+                    <div id="auditStationGasTableGas">AQI</div>
+                    <div>最大值</div>
+                    <div>最小值</div>
+                </div>
+                <div id="auditStationGasTableBodyOutDiv">
+                    <table id="auditStationGasTableBody">
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--审核站点详情-->
+        <div data-role="page" id="auditStationAuditListDetail">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">
+                <a data-rel="back" class="backButtonA" data-transition="slide" data-direction="reverse"><i class="icon-angle-left"></i></a>
+                <span class="headerTitle" id="auditStationListTitleName">金泉两河</span>
+                <a id="auditStationDetailTopList" data-rel="popup" href="#auditStationDetail_topList" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-transition="pop"><i class="icon-th-large"></i></a>
+                <div data-role="popup" id="auditStationDetail_topList">
+                    <div id="auditStationAuditFilter"><i class="icon-filter"></i>筛选</div>
+                    <div id="auditStationAuditSendDown"><i class="icon-circle-arrow-down"></i>下发</div>
+                    <a id="auditStationDetailChooseStation" data-rel="popup" href="#auditStationDetail_selectStation" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-transition="pop">站点</a>
+                    <div data-role="popup" id="auditStationDetail_selectStation">
+                    </div>
+                </div>
+            </div>
+            <div data-role="content" class="ui-content">
+                <div id="auditStationAuditMenuBar">
+                    <div type="all">全部数据</div>
+                    <div type="problem">可疑数据</div>
+                </div>
+                <div id='auditPopDivBack'></div>
+                <table id="auditStationAuditTable" so2flag="0" no2flag="0" coflag="0" o3flag="0" pm10flag="0" pm2_5flag="0">
+                    <thead>
+                    <tr>
+                        <th class="tableTIME" style="color:#2BC8C6">时间</td>
+                        <th class="tableSO2">SO<sub>2</sub></td>
+                        <th class="tableNO2">NO<sub>2</sub></td>
+                        <th class="tableCO">CO</td>
+                        <th class="tableO3">O<sub>3</sub></td>
+                        <th class="tablePM10">PM<sub>10</sub></td>
+                        <th class="tablePM2_5">PM<sub>2.5</sub></td>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <!--数据统计页-->
+        <div data-role="page" id="cityRankPage" data-dom-cache="true">
+            <!--<div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">-->
+                <!--<button data-role="none" class="indexHeaderButton provinceOnly" id="cityRankPageRefresh"><i class="iconNew-listRefresh"></i></button>-->
+                <!--<span class="headerTitle">空气质量指数排行榜</span>-->
+                <!--<a id="cityRankPageShareButton" data-rel="popup" href="#cityRankPage_ShareList" class="ui-btn ui-corner-all ui-shadow ui-btn-inline headerButtonA" data-transition="pop"><i class="iconNew-listTopRight"></i></a>-->
+                <!--<div data-role="popup" id="cityRankPage_ShareList" class="headerSharePopDiv">-->
+                    <!--<div class="sharePop_shareThisPage"><i class="icon icon-share"></i>分享</div>-->
+                    <!--<div class="sharePop_settingThisPage"><i class="iconApp-Setting"></i>设置</div>-->
+                    <!--<div class="sharePop_messageThisPage"><i class="iconNew-timeAndMessage"></i>说明</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div data-role="content" class="ui-content has-footer">-->
+                <!--<div id="cityRankMarkBar" class="topBarFixed">-->
+                    <!--<div datatype="real">实时</div>-->
+                    <!--<div datatype="day">日报</div>-->
+                    <!--<div datatype="month">月报</div>-->
+                <!--</div>-->
+                <!--<div id="cityRank_ContentTime"></div>-->
+                <!--<div id="cityRank_Content">-->
+                    <!--<div id="cityRank_ContentTable"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div data-role="footer" data-position="fixed" data-tap-toggle="false">-->
+                <!--<ul class="footerMenuUl"></ul>-->
+            <!--</div>-->
+            <!--<div data-role="content" class="ui-content" style="width: 100%;height: 640px;text-align: center">-->
+                <!--<img src= "img/ing.png" alt="图片加载失败" style="margin-top: 30%">-->
+            <!--</div>-->
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">
+                <!--<span class="headerTitle">数据排行</span>-->
+                <span class="headerbtn1" datatype="air">空气质量</span>
+                <span class="headerbtn2" datatype="water">水环境</span>
+            </div>
+            <div data-role="content" class="ui-content has-footer">
+                <div id="dataStatistics_Content">
+                <div class="outlierdataTable" type="74citysRank"><span>74城市排名</span></div>
+                <div class="outlierdataTable" type="21citysRank"><span>338城市排名</span></div>
+                <div class="outlierdataTable" type="provinceRank"><span>31省会城市排名</span></div>
+                <!--<div class="outlierdataTable" type="west12Rank"><span>四川在西部12省排名</span></div>-->
+                <div class="outlierdataTable" type="concentrationRank"><span>全省21市州排名</span></div>
+                <div class="outlierdataTable" type="concentrationYoYRank"><span>市州同比</span></div>
+                <div class="outlierdataTable" type="airAbnormalCount"><span>大气测管协同统计</span></div>
+                </div>
+                <div id="coding">
+                    <div data-role="content" class="ui-content" style="width: 100%;height: 640px;text-align: center">
+                        <img src="img/await.png" alt="图片加载失败" style="margin-top: 50%;width: 35%">
+                    </div>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <ul class="footerMenuUl"></ul>
+            </div>
+        </div>
+        <div data-role="page" id="dataStatisticsDetailPage">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">
+                <a data-rel="back" class="backButtonA" data-transition="slide" data-direction="reverse"><i class="icon-angle-left"></i></a>
+                <span class="headerTitle">排名</span>
+            </div>
+            <div data-role="content" class="ui-content has-footer">
+                <div id="YMDChangeBar" class="topBarFixed">
+                    <div type="day">日</div>
+                    <div type="month">月</div>
+                    <div type="year">年</div>
+                    <div type="accumulate">累计</div>
+                </div>
+                <div id="AQIChangeBar" class="topBarFixed">
+                    <div type="so2">SO<sub>2</sub></div>
+                    <div type="no2">NO<sub>2</sub></div>
+                    <div type="co">CO</div>
+                    <div type="o3">O<sub>3</sub></div>
+                    <div type="pm10">PM<sub>10</sub></div>
+                    <div type="pm25">PM<sub>2.5</sub></div>
+                    <div type="fine">优良率</div>
+                </div>
+                <div id="dataStatisticsDetailPage_title">
+
+                </div>
+                <div id="dataStatisticsDetailPage_content">
+
+                </div>
+                <div id="abnormalCountPage_content">
+
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <ul class="footerMenuUl"></ul>
+            </div>
+        </div>
+        <div data-role="page" id="abnarmalCountDetailPage">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">
+                <a data-rel="back" class="backButtonA" data-transition="slide" data-direction="reverse"><i class="icon-angle-left"></i></a>
+                <span class="headerTitle">测管协同详情统计</span>
+            </div>
+            <div data-role="content" class="ui-content has-footer">
+                <div id="abnarmalCountDetailPage_title">
+
+                </div>
+                <div id="abnarmalCountDetailPage_content">
+
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <ul class="footerMenuUl"></ul>
+            </div>
+        </div>
+        <!--空气预报页-->
+        <div data-role="page" id="forePubPage" data-dom-cache="true">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">
+                <button data-role="none" class="indexHeaderButton provinceOnly" id="forePubPageRefresh"><i class="iconNew-listRefresh"></i></button>
+                <span class="headerTitle">全省空气质量预报</span>
+                <a id="forePubPageShareButton" data-rel="popup" href="#forePubPage_ShareList" class="ui-btn ui-corner-all ui-shadow ui-btn-inline headerButtonA" data-transition="pop"><i class="iconNew-listTopRight"></i></a>
+                <div data-role="popup" id="forePubPage_ShareList" class="headerSharePopDiv">
+                    <div class="sharePop_shareThisPage"><i class="icon icon-share"></i>分享</div>
+                    <div class="sharePop_settingThisPage"><i class="iconApp-Setting"></i>设置</div>
+                    <div class="sharePop_messageThisPage"><i class="iconNew-timeAndMessage"></i>说明</div>
+                </div>
+            </div>
+            <div data-role="content" class="ui-content has-footer">
+                <div id="forePubTimeChooseBar">
+                    <div dataType="0"></div>
+                    <div dataType="1"></div>
+                    <div dataType="2"></div>
+                    <div dataType="3"></div>
+                    <div dataType="4"></div>
+                    <div dataType="5"></div>
+                    <div dataType="6"></div>
+                </div>
+                <div id="forePubPageMap"></div>
+                <div id="forecastPageAreaButton"></div>
+                <div id="forecastPageMapMarkBar"></div>
+                <div id="forePubPageTableHead">
+                    <div>城市</div>
+                    <div>AQI指数</div>
+                    <div>空气质量等级</div>
+                    <div>首要污染物</div>
+                </div>
+                <ul id="forePubPageTableBody">
+                </ul>
+            </div>
+            <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <ul class="footerMenuUl"></ul>
+            </div>
+        </div>
+        <div data-role="page" id="settingPage" data-dom-cache="true">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">
+                <a data-rel="back" class="backButtonA" data-transition="slide" data-direction="reverse"><i class="icon-angle-left"></i></a>
+                <span class="headerTitle">设置</span>
+            </div>
+            <div data-role="content" class="ui-content has-footer">
+                <div id="settingPage_Content">
+                    <div class="settingPageItem" id="following">
+                        <label class="settingPageItemLeft"><i class="icon-star-half-full"></i> 我的关注</label>
+                        <label class="settingPageItemRight"><i class="icon-angle-right"></i></label>
+                    </div>
+                    <div class="settingPageItem">
+                        <label class="settingPageItemLeft"><i class="icon-file-text-alt"></i> 消息开关</label>
+                        <label class="settingPageItemRight"><input type="checkbox" id="ifReceivePush" data-role="none"></label>
+                    </div>
+                    <div class="settingPageItem" id="Abnromalfollowing">
+                        <label class="settingPageItemLeft"><i class="icon-paste"></i> 异常关注</label>
+                        <label class="settingPageItemRight"><i class="icon-angle-right"></i></label>
+                    </div>
+                    <!--<div class="settingPageItem" id="AQIsettings">-->
+                        <!--<label class="settingPageItemLeft"><i class="icon-gear"></i> 阀值设置</label>-->
+                        <!--<label class="settingPageItemRight"><i class="icon-angle-right"></i></label>-->
+                    <!--</div>-->
+                    <div class="settingPageItem" id="clear">
+                        <label class="settingPageItemLeft"><i class="icon-trash"></i> 清除缓存</label>
+                        <label class="settingPageItemRight"><i class="icon-angle-right"></i></label>
+                    </div>
+                    <div id="closeTheApp">注销登录</div>
+                </div>
+            </div>
+        </div>
+        <div data-role="page" id="AbnromalfollowingPage" data-dom-cache="true">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">
+                <a data-rel="back" class="backButtonA" data-transition="slide" data-direction="reverse"><i class="icon-angle-left"></i></a>
+                <span class="headerTitle">异常数据关注</span>
+            </div>
+            <div data-role="content" class="ui-content has-footer">
+                <div id="AbnormalChooseBar" class="topBarFixed">
+                    <div type="air" class="AbnormalActive">空气质量</div>
+                    <div type="water">水质量</div>
+                </div>
+                <div id="AbnromalfollowingPage_content">
+                    <div class='listitemTable' style="margin-top: 0px"><label class='followingPageItemLeft'>无数据</label><label class='followingPageItemRight'><input type="checkbox" id="4" data-role="none"></label></div>
+                    <div class='listitemTable'><label class='followingPageItemLeft'>数据恒定</label><label class='followingPageItemRight'><input type="checkbox" id="5" data-role="none" ></label></div>
+                    <!--<div class='listitemTable'><label class='followingPageItemLeft'>数据离群</label><label class='followingPageItemRight'><input type="checkbox" id="6" data-role="none"></label></div>-->
+                    <!--<div class='listitemTable'><label class='followingPageItemLeft'>数据超过阀值</label><label class='followingPageItemRight'><input type="checkbox" id="7" data-role="none"></label></div>-->
+                </div>
+                <div id="AbnromalwaterfollowingPage_content" style="display: none">
+                    <div class='listitemTable' style="margin-top: 0px"><label class='followingPageItemLeft'>数值为零</label><label class='followingPageItemRight'><input type="checkbox" id="wa4"  data-role="none"></label></div>
+                    <div class='listitemTable'><label class='followingPageItemLeft'>数值恒定</label><label class='followingPageItemRight'><input type="checkbox" id="wa5"  data-role="none" ></label></div>
+                    <div class='listitemTable'><label class='followingPageItemLeft'>数值离群</label><label class='followingPageItemRight'><input type="checkbox" id="wa6"  data-role="none"></label></div>
+                    <div class='listitemTable'><label class='followingPageItemLeft'>数值偏大</label><label class='followingPageItemRight'><input type="checkbox" id="wa7"  data-role="none"></label></div>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <ul class="footerMenuUl"></ul>
+            </div>
+        </div>
+        <div data-role="page" id="followingPage" data-dom-cache="true">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">
+                <a data-rel="back" class="backButtonA" data-transition="slide" data-direction="reverse"><i class="icon-angle-left"></i></a>
+                <span class="headerTitle">我的关注</span>
+            </div>
+            <div data-role="content" class="ui-content has-footer">
+                <div id="followinglistChooseBar">
+                    <div dataType="followinglist" class="followinglistChooseActive">我的关注</div>
+                    <div dataType="citylist">城市列表</div>
+                </div>
+                <div id="followingPage_content">
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <ul class="footerMenuUl"></ul>
+            </div>
+        </div>
+        <div data-role="page" id="infomationPage" data-dom-cache="true">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">
+                <a data-rel="back" class="backButtonA" data-transition="slide" data-direction="reverse"><i class="icon-angle-left"></i></a>
+                <span class="headerTitle">说明</span>
+            </div>
+
+            <div data-role="content" class="ui-content has-footer">
+                <div style="background-color: #2bc8c6; text-align: center;" >
+                    <span class="spanActive"  id="airShow">空气</span>
+                    <span class="spanActive"  >水质</span>
+                </div>
+
+                <div id="air">
+                    <div id="infomationPage_Content1">
+                        <div id="infomationPage_Content1Head">空气质量指数AQI:</div>
+                        <div id="infomationPage_Content1Body">
+                            <label>空气质量指数(Air Quality Index，简称AQI)是定量描述空气质量状况的无量纲指数。</label>
+                            <label>针对单项污染物的还规定了空气质量分指数。参与空气质量评价的主要污染物为细颗粒物、可吸入颗粒物、二氧化硫、二氧化氮、臭氧、一氧化碳等六项。</label>
+                        </div>
+                        <div id="infomationPage_Content1Footer">
+                            <div id="infomationPage_Content1FooterButton">查看详情</div>
+                        </div>
+                    </div>
+                    <div id="infomationPage_Content2">
+                        <label class="infomationPage_Content2Head">主要污染物:<span>(点击下列图标可查看详情)</span></label>
+                        <div class="infomationGasRow infomationGasRow1">
+                            <div class="infomationGasItem" gas="SO2">
+                                <div>SO<sub>2</sub></div>
+                            </div>
+                            <div class="infomationGasItem" gas="NO2">
+                                <div>NO<sub>2</sub></div>
+                            </div>
+                            <div class="infomationGasItem" gas="CO">
+                                <div>CO</div>
+                            </div>
+                        </div>
+                        <div class="infomationGasRow infomationGasRow2">
+                            <div class="infomationGasItem" gas="O3">
+                                <div>O<sub>3</sub></div>
+                            </div>
+                            <div class="infomationGasItem" gas="PM10">
+                                <div>PM<sub>10</sub></div>
+                            </div>
+                            <div class="infomationGasItem" gas="PM2_5">
+                                <div>PM<sub>2.5</sub></div>
+                            </div>
+                        </div>
+                        <label class="infomationPage_Content2Head">环境空气综合指数:</label>
+                        <label class="infomationPage_Content2Text">&nbsp&nbsp环境空气综合指数是描述城市环境空气质量综合状况的无量纲指数，首先计算每项污染物的单项指数，然后将六项污染物的单项指数相加，即得到环境空气综合指数，它综合考虑了评价指数污染物的污染情况，环境空气综合指数越大表明综合污染程度越重。</label>
+                    </div>
+                </div>
+                <div id="water">
+                    <div id="water_infomationPage_Content1">
+                        <div id="water_infomationPage_Content1Head">水质质量指数WQI:</div>
+                        <div id="water_infomationPage_Content1Body">
+                            <label>水质质量指数（water quality index, 简称WQI）是定量描述水质质量状况的无量纲指数。</label>
+                            <label>针对单项污染物规定了水质质量分指数，参与水质质量评价的主要污染物为高锰酸盐指数、总磷、氨氮、溶解氧四项。</label>
+                        </div>
+                        <div id="water_infomationPage_Content1Footer">
+                            <div id="water_infomationPage_Content1FooterButton">查看详情</div>
+                        </div>
+                    </div>
+                    <div id="water_infomationPage_Content2">
+                        <label class="infomationPage_Content2Head">主要污染物:<span>(点击下列图标可查看详情)</span></label>
+                        <div class="infomationGasRow infomationGasRow1">
+                            <div class="infomationGasItem" gas="KMnO4">
+                                <div style="padding-top: 6px;">高锰酸盐指数</div>
+                            </div>
+                            <div class="infomationGasItem" gas="Px">
+                                <div>总磷</div>
+                            </div>
+                        </div>
+                        <div class="infomationGasRow ">
+                            <div class="infomationGasItem" gas="NH">
+                                <div>氨氮</div>
+                            </div>
+                            <div class="infomationGasItem" gas="O2">
+                                <div>溶解氧</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--<div data-role="page" id="thresholdSetPage" data-dom-cache="true">-->
+            <!--<div data-role="header" data-position="fixed" data-tap-toggle="false" class="mainHeader">-->
+                <!--<a data-rel="back" class="backButtonA" data-transition="slide" data-direction="reverse"><i class="icon-angle-left"></i></a>-->
+                <!--<span class="headerTitle">阀值设置</span>-->
+            <!--</div>-->
+            <!--<div data-role="content" class="ui-content has-footer">-->
+                <!--<div id="thresholdSetChooseBar">-->
+                    <!--<div dataType="country" class="thresholdSetChooseActive">国控站</div>-->
+                    <!--<div dataType="province">省控站</div>-->
+                <!--</div>-->
+                <!--<div id="thresholdSetPage_content">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div data-role="footer" data-position="fixed" data-tap-toggle="false">-->
+                <!--<ul class="footerMenuUl"></ul>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <div data-role="page" id="JPUSHpage">
+            <div data-role="content">
+                <form>
+                    <div class="ui-body ui-body-b">
+                        <div data-role="fieldcontain">
+                            <center>
+                                <h3>JPushPlugin Example</h3>
+                            </center>
+                            <span name="alias" id="alias"></span>
+                            <hr/>
+                            <label>RegistrationID: </label>
+                            <label id="registrationId">null</label>
+                        </div>
+                        <div data-role="fieldcontain">
+                            <label>Tags: </label>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <input type="text" id="tagText1" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="text" id="tagText2" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="text" id="tagText3" />
+                                    </td>
+                                </tr>
+                            </table>
+                            <label>Alias: </label>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <input type="text" id="aliasText" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div data-role="fieldcontain">
+                            <input type="button" id="setTagWithAliasButton"
+                                   value="Add tag and alias" />
+                        </div>
+                        <div data-role="fieldcontain">
+                            <label id="tagAliasPrompt">设置tag/alias结果:</label>
+                            <label id="tagAliasResult">null</label>
+                        </div>
+                        <div data-role="fieldcontain">
+                            <label id="notificationPrompt">接受的通知内容:</label>
+                            <label id="notificationResult">null</label>
+                        </div>
+                        <div data-role="fieldcontain">
+                            <label id="messagePrompt">接受的自定义消息:</label>
+                            <label id="messageResult">null</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="warningAlert" class="warningAlertDiv">
+            <span></span>
+        </div>
+        <div id="ajaxPleaseWait">
+            <div id="ajaxPleaseWaitBack">
+                <div class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </div>
+        </div>
+        <div id="askDiv">
+            <div id="askBack">
+            </div>
+            <div id="askContentOuter">
+                <div id="askContent">
+                    <label></label>
+                    <button id="askDivCancelButton">取消</button>
+                    <button id="askDivConfirmButton">确定</button>
+                </div>
+            </div>
+        </div>
+        <div id="forecastPubAreaDiv">
+            <div id="forecastPubAreaDivBack">
+            </div>
+            <div id="forecastPubAreaDivContent">
+                <button data-role="none" id="forecastPubAreaDivContentHeadCloseButton">×</button>
+                <div id="forecastPubAreaDivContentBody">
+                </div>
+            </div>
+        </div>
+        <div id="infomationFancyDiv">
+            <div id="infomationFancyDivBack">
+            </div>
+            <div id="infomationFancyDivContent">
+                <div id="infomationFancyDivContentHead">
+                    <label id="infomationFancyDivContentHeadTitle"></label>
+                    <button data-role="none" id="infomationFancyDivContentHeadCloseButton">×</button>
+                </div>
+                <div id="infomationFancyDivContentBody">
+                </div>.
+            </div>
+        </div>
+        <div id="shareFancyDiv">
+            <div id="shareFancyDivBack">
+            </div>
+            <div id="shareFancyDivContent">
+                <div class="shareContentRow">
+                    <div class="shareContentItem" onclick="tool.shareToSinaWeibo()">
+                        <div class="shareContentImg" style="background-image:url(img/icon/share/ssdk_oks_logo_sinaweibo.png)"></div>
+                        <label class="shareContentLabel">新浪微博</label>
+                    </div>
+                    <div class="shareContentItem" onclick="tool.shareToWeixin()">
+                        <div class="shareContentImg" style="background-image:url(img/icon/share/ssdk_oks_logo_wechat.png)"></div>
+                        <label class="shareContentLabel">微信</label>
+                    </div>
+                    <div class="shareContentItem" onclick="tool.shareToQQ()">
+                        <div class="shareContentImg" style="background-image:url(img/icon/share/ssdk_oks_logo_qq.png)"></div>
+                        <label class="shareContentLabel">QQ</label>
+                    </div>
+                </div>
+                <button id="cancelTheShareDiv" data-role="none">取消</button>
+            </div>
+        </div>
+        <div data-role="page" id="login">
+            <div data-role="content" id="loginContent">
+            </div>
+        </div>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/plugin/jq/jquery-2.1.0.min.js"></script>
+        <script type="text/javascript" src="js/plugin/jq/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/plugin/jq-file-upload/jquery.iframe-transport.js"></script>
+        <script type="text/javascript" src="js/plugin/jq-file-upload/jquery.ui.widget.js"></script>
+        <script type="text/javascript" src="js/plugin/router/jquery.mobile.router.min.js"></script>
+        <script type="text/javascript" src="js/plugin/jqm/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/plugin/html5-time-150220105758/js/mobiscroll.custom-2.6.2.min.js"></script>
+        <!--<script type="text/javascript" src="cordova.js"></script>-->
+        <script type="text/javascript" src="js/plugin/iscroll/iscroll.js"></script>
+        <script type="text/javascript" src="js/plugin/template/template.js"></script>
+        <script type="text/javascript" src="js/plugin/swiper/swiper-3.3.1.jquery.min.js"></script>
+        <script type="text/javascript" src="js/plugin/Echarts/echarts-all.js"></script>
+        <script type="text/javascript" src="js/plugin/video/video.min.js"></script>
+        <script type="text/javascript" src="js/plugin/md5/md5.js"></script>
+        <script type="text/javascript" src="js/plugin/mobiscroll/mobiscroll.custom-2.5.0.min.js"></script>
+        <script type="text/javascript" src="js/plugin/androidIMEI/js_sdk20170302.js"></script>
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=HTevQw9BPxlK7usu4IDLvBtsCY4qFPGS"></script>
+        <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+        <script type="text/javascript" src="js/plugin/JPush/Jpush.js"></script>
+        <script type="text/javascript" src="js/plugin/cookie/jquery.cookie.js"></script>
+        <!--<script type="text/javascript" src="js/plugin/statusbar/statusbar.js"></script>-->
+        <script type="text/javascript" src="js/forecast/forecastHomepage.js"></script>
+        <script type="text/javascript" src="js/forecast/forecastPersonalPro.js"></script>
+        <script type="text/javascript" src="js/forecast/mobileForecastCity.js"></script>
+        <script type="text/javascript" src="js/tool.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="data/footerMenu.js"></script>
+    </body>
+</html>

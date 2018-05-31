@@ -1,0 +1,111 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "jpush-phonegap-plugin",
+        "scope": null,
+        "escapedName": "jpush-phonegap-plugin",
+        "name": "jpush-phonegap-plugin",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "E:\\www\\scair_app\\scnewairPub"
+    ]
+  ],
+  "_cnpm_publish_time": 1513323429381,
+  "_from": "jpush-phonegap-plugin@latest",
+  "_hasShrinkwrap": false,
+  "_id": "jpush-phonegap-plugin@3.2.13",
+  "_inCache": true,
+  "_location": "/jpush-phonegap-plugin",
+  "_nodeVersion": "8.9.1",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/jpush-phonegap-plugin-3.2.13.tgz_1513323429018_0.9814175206702203"
+  },
+  "_npmUser": {
+    "name": "hev1n",
+    "email": "hev1n@qq.com"
+  },
+  "_npmVersion": "5.6.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "jpush-phonegap-plugin",
+    "scope": null,
+    "escapedName": "jpush-phonegap-plugin",
+    "name": "jpush-phonegap-plugin",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npm.taobao.org/jpush-phonegap-plugin/download/jpush-phonegap-plugin-3.2.13.tgz",
+  "_shasum": "82d11dd92ff47a369c723a70ca33826a71df4a85",
+  "_shrinkwrap": null,
+  "_spec": "jpush-phonegap-plugin",
+  "_where": "E:\\www\\scair_app\\scnewairPub",
+  "author": {
+    "name": "JiGuang"
+  },
+  "bugs": {
+    "url": "https://github.com/jpush/jpush-phonegap-plugin/issues"
+  },
+  "cordova": {
+    "id": "jpush-phonegap-plugin",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "dependencies": {},
+  "description": "JPush for cordova plugin",
+  "devDependencies": {
+    "cordova-plugin-device": "*",
+    "cordova-plugin-jcore": "*"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "82d11dd92ff47a369c723a70ca33826a71df4a85",
+    "size": 4265642,
+    "noattachment": false,
+    "tarball": "http://registry.npm.taobao.org/jpush-phonegap-plugin/download/jpush-phonegap-plugin-3.2.13.tgz"
+  },
+  "gitHead": "5301a2c5eac00ef96c2646086be73d3c65e5efe2",
+  "homepage": "https://github.com/jpush/jpush-phonegap-plugin#readme",
+  "keywords": [
+    "JPush",
+    "push",
+    "Push",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "hev1n",
+      "email": "hev1n@qq.com"
+    },
+    {
+      "name": "huminios",
+      "email": "380108184@qq.com"
+    },
+    {
+      "name": "jpush",
+      "email": "support@jpush.cn"
+    }
+  ],
+  "name": "jpush-phonegap-plugin",
+  "optionalDependencies": {},
+  "publish_time": 1513323429381,
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpush/jpush-phonegap-plugin.git"
+  },
+  "version": "3.2.13"
+}

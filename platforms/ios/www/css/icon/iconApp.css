@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'icomoon';
+    src:    url('fonts/icomoon.eot?r6pftr');
+    src:    url('fonts/icomoon.eot?r6pftr#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?r6pftr') format('truetype'),
+        url('fonts/icomoon.woff?r6pftr') format('woff'),
+        url('fonts/icomoon.svg?r6pftr#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="iconApp-"], [class*=" iconApp-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.iconApp-Audit:before {
+    content: "\e900";
+}
+.iconApp-barGraph:before {
+    content: "\e901";
+}
+.iconApp-Check:before {
+    content: "\e902";
+}
+.iconApp-CheckRow:before {
+    content: "\e903";
+}
+.iconApp-DownArrow:before {
+    content: "\e904";
+}
+.iconApp-foreCity:before {
+    content: "\e905";
+}
+.iconApp-foreMap:before {
+    content: "\e906";
+}
+.iconApp-foreProvince:before {
+    content: "\e907";
+}
+.iconApp-forePublish:before {
+    content: "\e908";
+}
+.iconApp-Home:before {
+    content: "\e909";
+}
+.iconApp-lineGraph:before {
+    content: "\e90a";
+}
+.iconApp-love:before {
+    content: "\e90b";
+}
+.iconApp-MapMark:before {
+    content: "\e90c";
+}
+.iconApp-offCity:before {
+    content: "\e90d";
+}
+.iconApp-offStation:before {
+    content: "\e90e";
+}
+.iconApp-password:before {
+    content: "\e90f";
+}
+.iconApp-refresh:before {
+    content: "\e910";
+}
+.iconApp-Right:before {
+    content: "\e911";
+}
+.iconApp-Search:before {
+    content: "\e912";
+}
+.iconApp-Setting:before {
+    content: "\e913";
+}
+.iconApp-trashBin:before {
+    content: "\e914";
+}
+.iconApp-user:before {
+    content: "\e915";
+}
+.iconApp-Warning:before {
+    content: "\e916";
+}
+

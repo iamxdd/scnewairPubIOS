@@ -1,0 +1,72 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?gkssjf');
+  src:  url('fonts/icomoon.eot?gkssjf#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?gkssjf') format('truetype'),
+    url('fonts/icomoon.woff?gkssjf') format('woff'),
+    url('fonts/icomoon.svg?gkssjf#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="iconNew-"], [class*=" iconNew-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconNew-barGraph:before {
+  content: "\e113";
+}
+.iconNew-alertMessage:before {
+  content: "\e114";
+}
+.iconNew-timeAndMessage:before {
+  content: "\e115";
+}
+.iconNew-down:before {
+  content: "\e112";
+}
+.iconNew-ping:before {
+  content: "\e111";
+}
+.iconNew-up:before {
+  content: "\e110";
+}
+.iconNew-WD:before {
+  content: "\e108";
+}
+.iconNew-weather:before {
+  content: "\e109";
+}
+.iconNew-listmap:before {
+  content: "\e100";
+}
+.iconNew-listcity:before {
+  content: "\e101";
+}
+.iconNew-listTopRight:before {
+  content: "\e102";
+}
+.iconNew-listFore:before {
+  content: "\e103";
+}
+.iconNew-listList:before {
+  content: "\e104";
+}
+.iconNew-listRank:before {
+  content: "\e105";
+}
+.iconNew-listRefresh:before {
+  content: "\e106";
+}
+

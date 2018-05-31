@@ -1,0 +1,44 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "com.spout.phonegap.plugins.baidulocation": {
+      "PACKAGE_NAME": "com.xsscd.AirQualityPublic"
+    },
+    "cordova-plugin-crosswalk-webview": {
+      "PACKAGE_NAME": "com.xsscd.AirQualityPublic"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.xsscd.AirQualityPublic"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.xsscd.AirQualityPublic"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.xsscd.AirQualityPublic"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.xsscd.AirQualityPublic"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.xsscd.AirQualityPublic"
+    },
+    "jpush-phonegap-plugin": {
+      "APP_KEY": "bdcc5b4c94eed12af1098165",
+      "PACKAGE_NAME": "com.xsscd.AirQualityPublic"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.xsscd.AirQualityPublic"
+    },
+    "cordova-plugin-jcore": {
+      "PACKAGE_NAME": "com.xsscd.AirQualityPublic"
+    }
+  }
+}

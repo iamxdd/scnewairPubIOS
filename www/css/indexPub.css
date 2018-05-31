@@ -1,0 +1,1367 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+.headerSharePopDiv{
+    width:110px;
+}
+#cityGasTable{
+    margin-top:10px;
+    margin-bottom:20px;
+}
+.sharePop_shareThisPage{
+    border-bottom: 1px solid #A7A7A7;
+    margin: 5px 10px;
+    padding: 10px 0px;
+    color:#6b6b6b;
+    text-align: center;
+    font-size: 15px;
+    display: none;
+}
+.sharePop_settingThisPage{
+    border-bottom: 1px solid #A7A7A7;
+    margin: 5px 10px;
+    padding: 10px 0px;
+    color:#6b6b6b;
+    text-align: center;
+    font-size: 15px;
+}
+.sharePop_messageThisPage{
+    margin: 5px 10px;
+    padding: 10px 0px;
+    color:#6b6b6b;
+    text-align: center;
+    font-size: 15px;
+}
+.sharePop_shareThisPage>i,.sharePop_settingThisPage>i,.sharePop_messageThisPage>i{
+    margin-right:3px;
+    font-size:17px;
+}
+#indexPageMapTime{
+    position: absolute;
+    top: 120px;
+    left: 10px;
+    font-size: 12px;
+    color: #8A8A8A;
+    border: 1px solid #8A8A8A;
+    padding: 8px 4px;
+    border-radius: 6px;
+    background-color: #fff;
+    opacity: 0.7;
+}
+#waterindexPageMapTime{
+    position: absolute;
+    top: 120px;
+    left: 10px;
+    font-size: 12px;
+    color: #8A8A8A;
+    border: 1px solid #8A8A8A;
+    padding: 8px 4px;
+    border-radius: 6px;
+    background-color: #fff;
+    opacity: 0.7;
+}
+#airDetail{
+    position: absolute;
+    bottom: 118px;
+    left: 4px;
+    font-size: 12px;
+    color: #fff;
+    border: 1px solid #8A8A8A;
+    padding: 8px 4px;
+    border-radius: 6px;
+    background-color: #2c2c2c;
+    opacity: 0.5;
+}
+#forePubTimeChooseBar{
+    background-color:#fff;
+    text-align:center;
+    overflow:hidden;
+    font-size:0px;
+}
+#forePubTimeChooseBar>div{
+    font-size:14px;
+    width:14.2%;
+    float:left;
+    padding:8px 0px;
+}
+.forePubTimeChooseActive{
+    color: #2BC8C6;
+    border-bottom: 3px solid #2BC8C6;
+}
+#forePubPageMap{
+    width:100%;
+    height:300px;
+}
+#forePubPageTableHead{
+    background-color:#2BC8C6;
+    overflow:hidden;
+    font-size:0px;
+    height: 47.5px;
+    box-sizing: border-box;
+    padding-top: 5px;
+}
+#forePubPageTableHead>div{
+    padding:10px 0px;
+    font-size:15px;
+    float:left;
+    text-align: center;
+}
+#forePubPageTableHead>div:nth-child(1){
+   width:15%;
+}
+#forePubPageTableHead>div:nth-child(2){
+    width:20%;
+}
+#forePubPageTableHead>div:nth-child(3){
+    width:30%;
+}
+#forePubPageTableHead>div:nth-child(4){
+    width:35%;
+}
+#forePubPageTable{
+    width:100%;
+    background-color:#f5f5f5;
+    overflow:hidden;
+}
+#forePubPageTableBody{
+    width:100%;
+    overflow:hidden;
+    padding: 0px!important;
+    margin: 0px!important;
+}
+.forePubTableBodyTr{
+    height:47px;
+    overflow:hidden;
+    font-size:0px;
+    background-color:#f5f5f5;
+    border-bottom:1px solid #E0E0E0;
+    box-sizing: border-box;
+}
+.forePubTableBodyTr>div{
+    display: inline-block;
+    text-align:center;
+    font-size:15px;
+    box-sizing: border-box;
+    color:#545454;
+    overflow:hidden;
+    vertical-align:middle;
+}
+.forePubTableBodyTr>div:nth-child(1){
+    width:15%;
+    height:47px;
+    padding-top:14px;
+}
+.forePubTableBodyTr>div:nth-child(2){
+    width:20%;
+}
+.forePubTableBodyTr>div:nth-child(3){
+    width:30%;
+}
+.forePubTableBodyTr>div:nth-child(4){
+    width:35%;
+}
+#forecastPageMapMarkBar{
+    z-index: 1000;
+    position: absolute!important;
+    right: 9px!important;
+    top:325px;
+    width: 214px;
+    height: 45px;
+    background-size: 214px 45px;
+    background-image: url("../img/mapParam/mapaqirank.png");
+}
+#forecastPageAreaButton{
+    z-index: 1000;
+    position: absolute!important;
+    right: 5px!important;
+    top:174px;
+    width:55px;
+    height:80px;
+    background: url(../img/backGround/area_forcast.png);
+    background-size: 55px 80px;
+}
+
+#forecastPubAreaDiv{
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    position: fixed;
+}
+#forecastPubAreaDivBack{
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: fixed;
+    top:0px;
+    background-color: rgba(0,0,0,0.6);
+}
+#forecastPubAreaDivContent{
+    width:240px;
+    background-color:#fff;
+    margin: auto;
+    border-radius: 12px;
+    padding:3px;
+    font-size:13px;
+}
+#forecastPubAreaDivContentHeadCloseButton{
+    float: right;
+    width: 24px;
+    height: 23px;
+    background-color: #a7a7a7;
+    border: 0px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 19px!important;
+    text-align: center;
+    font-weight: bolder;
+    padding: 0px;
+}
+#forecastPubAreaDivContentHead{
+    height: 23px;
+    width: 100%;
+}
+#cityRankMarkBar{
+    overflow:hidden;
+    font-size:0px;
+    background-color: #F1F1F1;
+}
+#cityRankMarkBar>div{
+    width:33.33%;
+    float:left;
+    font-size:14px;
+    text-align: center;
+    padding:8px 0px;
+    border-bottom:2px solid #fff;
+}
+.cityRankMarkBarActive{
+    color: #2BC8C6;
+    border-bottom: 2px solid #2BC8C6!important;
+}
+#cityRank_Content{
+    margin-top:57px;
+}
+#cityRank_ContentTime{
+    padding-left:10px;
+    padding-top:2px;
+    padding-bottom:2px;
+    font-size:14px;
+    color:#A7A7A7;
+    position: fixed;
+    top: 79px;
+    width: 100%;
+    background-color: #F1F1F1;
+}
+.cityRankTableTr{
+    overflow: hidden;
+    font-size:0px;
+    padding:6px 0px;
+}
+.cityRankTableTr>div{
+    float:left;
+    padding:10px 0px;
+    text-align:center;
+}
+.cityRankTableTrNo{
+    font-size:26px;
+    color:#A7A7A7;
+    padding:6px 0px!important;
+    padding-left:15px!important;
+}
+.cityRankTableTrName{
+    font-size:18px;
+    color:#545454;
+    padding:5px 0px;
+    margin-right:15px;
+    width: 54px;
+    text-align: left!important;
+}
+.cityRankTableTrValue{
+    font-size:17px;
+    margin-right:26px;
+}
+.cityRankTableTrValue3{
+    font-size:17px;
+    margin-right:17px;
+}
+.cityRankTableTrLevel{
+    color:#fff;
+    margin-right:25px;
+    width:68px;
+}
+.cityRankTableTrLevel>label{
+    border-radius:5px;
+    font-size:15px!important;
+    height:19px;
+}
+.cityRankTableTrLevel3{
+    color:#fff;
+    margin-right:20px;
+    width:115px;
+}
+.cityRankTableTrLevel3>label{
+    border-radius:5px;
+    font-size:15px!important;
+    height:19px;
+}
+.cityRankTableTrDetail{
+    font-size:15px;
+    color:#a7a7a7;
+    margin-right:20px;
+}
+.cityRankTableTrDetail3{
+    font-size:15px;
+    color:#a7a7a7;
+    margin-right:5px;
+}
+.settingPageItem{
+    overflow:hidden;
+    font-size:16px;
+    border-bottom: 1px solid #E7E7E7;
+    background-color: #fff;
+    height:48px;
+}
+
+.settingPageItemLeft{
+    float:left;
+    width:50%;
+    text-align:left;
+    padding:16px;
+    box-sizing: border-box;
+    font-size:16px!important;
+    margin:0px!important;
+    height:100%;
+}
+.settingPageItemRight{
+    float:left;
+    width:50%;
+    text-align:right;
+    padding:16px;
+    box-sizing: border-box;
+    font-size:16px!important;
+    margin:0px!important;
+    height:100%;
+}
+#closeTheApp{
+    text-align:center;
+    font-size:14px;
+    padding:15px;
+    background-color:red;
+    color:#fff;
+    margin-top:10px;
+    height: 48px;
+    box-sizing: border-box;
+}
+#infomationPage_Content1{
+    background-color:#2BC8C6;
+    color:#fff;
+    padding:20px;
+}
+#infomationPage_Content1Head{
+    font-size:18px;
+    margin-bottom:18px;
+}
+#infomationPage_Content1Body{
+    margin-bottom:5px;
+    text-indent:2em
+}
+#infomationPage_Content1Body>label{
+    font-size:13px!important;
+}
+#infomationPage_Content1Body>label:first-child{
+    margin-bottom:14.5px;
+}
+#infomationPage_Content1Footer{
+    height:26px;
+}
+#infomationPage_Content1FooterButton{
+    font-size:13px;
+    border:2px solid #fff;
+    float:right;
+    text-align: center;
+    padding: 1px -7px;
+    border-radius:4px;
+    width:81px;
+    height:20px;
+    box-sizing: border-box;
+}
+
+
+#infomationFancyDiv{
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    position: fixed;
+}
+#infomationFancyDivBack{
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: fixed;
+    top:0px;
+    background-color: rgba(0,0,0,0.6);
+}
+#infomationFancyDivContent{
+    width:240px;
+    background-color:#fff;
+    margin: auto;
+    border-radius: 12px;
+    padding:10px;
+    font-size:13px;
+}
+#infomationFancyDivContentHeadCloseButton{
+    float: right;
+    width: 24px;
+    height: 23px;
+    background-color: #a7a7a7;
+    border: 0px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 19px!important;
+    text-align: center;
+    font-weight: bolder;
+    padding: 0px;
+    margin-top: -34px;
+}
+#infomationFancyAreaDivContentHead{
+    height: 23px;
+    width: 100%;
+}
+#infomationFancyDivContentHeadTitle{
+    text-align:center;
+    font-size:20px;
+}
+.infoFanDivContent{
+    padding:5px;
+}
+.infoFanDivLabel{
+    font-size:13px!important;
+}
+.infoFanDivTitle{
+    font-size:14px!important;
+}
+.infoFanDivTable{
+    overflow:hidden;
+    font-size:0px;
+}
+.infoFanDivTdLeft{
+    width:50%;
+    float:left;
+    font-size:13px;
+    padding-left:20px;
+    box-sizing: border-box;
+}
+.infoFanDivTdRight{
+    width:50%;
+    float:right;
+    font-size:13px;
+    padding-left:20px;
+    box-sizing: border-box;
+}
+#infomationPage_Content2{
+    padding:20px;
+}
+.infomationPage_Content2Head{
+    font-size:18px!important;
+    margin-bottom:21px!important;
+    color:#42C3BF;
+}
+.infomationPage_Content2Head>span{
+    font-size:13px!important;
+}
+.infomationPage_Content2Text{
+    font-size:13px!important;
+    color:#42C3BF;
+    text-indent: 2em;
+}
+.infomationGasRow{
+    overflow: hidden;
+    font-size:0px;
+    text-align: center;
+}
+.infomationGasRow1{
+    margin-bottom:10px;
+}
+.infomationGasRow2{
+    margin-bottom:21px;
+}
+.infomationGasItem{
+    display: inline-block;
+}
+.infomationGasItem>div{
+    display: inline-block;
+    font-size:13px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    border:2px solid #42C3BF;
+    text-align:center;
+    box-sizing: border-box;
+    padding-top: 20px;
+    background-color:#BAE5E4;
+    color:#42C3BF;
+}
+.infomationGasRow>.infomationGasItem:nth-child(1){
+    margin-right:40px;
+}
+.infomationGasRow>.infomationGasItem:nth-child(2){
+    margin-right:40px;
+}
+#infomationFancyDivContentBody{
+    max-height:300px;
+    overflow:auto;
+}
+#infomationPage>div[data-role="content"]{
+    background-color:#F3F3F3!important;
+}
+#shareFancyDiv{
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    position: fixed;
+}
+#shareFancyDivBack{
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: fixed;
+    top:0px;
+    background-color: rgba(0,0,0,0.6);
+}
+#shareFancyDivContent{
+    width:100%;
+    height:300px;
+    background-color:#fff;
+    font-size:13px;
+    padding-top:10px;
+    position: fixed;
+    bottom:-310px;
+}
+.shareContentRow{
+    width:100%;
+    overflow:hidden;
+    font-size:0px;
+    margin-bottom:10px;
+}
+.shareContentItem{
+    width:33.33%;
+    float:left;
+}
+.shareContentLabel{
+    width:100%;
+    text-align: center;
+    font-size:13px!important;
+    margin-top:3px!important;
+}
+.shareContentImg{
+    height:50px;
+    width:50px;
+    margin:auto;
+    background-size:50px 50px;
+}
+#cancelTheShareDiv{
+    margin-left:5%;
+    text-align: center;
+    font-size:13px;
+    width:90%;
+    background-color:#fff;
+    border:1px solid #a7a7a7;
+    padding:8px 0px;
+    box-sizing: border-box;
+}
+.gasTableItem{
+    border:0px!important;
+}
+.auditPageTimeTitle{
+    font-size:13px!important;
+    color:#a7a7a7;
+    margin-top:5px;
+    margin-bottom:10px;
+}
+.auditPageWeatherDetail{
+    float:right;
+    margin-right:18px;
+    font-size: 12px!important;
+    padding:0px!important;
+}
+.auditPageWeatherDetailLast{
+    text-align: right;
+    float:right;
+    font-size: 12px!important;
+    padding:0px!important;
+    margin-top:3px;
+}
+.auditPageWeatherDetailFirst{
+    float:right;
+    margin-right:18px;
+    font-size: 12px!important;
+    padding:0px!important;
+}
+.auditPageWeatherDetail>i{
+    font-size:14px!important;
+    color:#2BC8C6;
+}
+.auditPageWeatherDetailFirst>i{
+    font-size:14px!important;
+}
+#indexPage_ShareList{
+    background-color:rgba(255,255,255,0.9)
+}
+.auditPageContentItem{
+    height:100px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #BBBBBB;
+}
+
+/*异常数据CSS*/
+.outlierdataTable{
+    overflow: hidden;
+    font-size:0px;
+    padding:14px 0px;
+    border-bottom: 1px solid #E7E7E7;
+    background-color: #fff;
+}
+.outlierdataTable>div{
+    float:left;
+    padding:10px 0px;
+    text-align: start;
+}
+.unreadbg{
+    background-color: #ffe9e9;
+}
+#siteDetailPage_content .outlierdataTable{
+    padding:3px 0px;
+}
+.listTable>.outlierdataTable:nth-child(1){
+    margin-top: 82px;
+    border-top: 1px solid #E7E7E7;
+}
+.cityName,.timepoint{
+    font-size:16px;
+    width: 39%;
+    color:#000;
+    padding-bottom:5px!important;
+    margin-left:15px!important;
+}
+.pollutionname31{
+    font-size:16px;
+    width: 30%;
+    color:#000;
+    padding-bottom:5px!important;
+    margin-left:15px!important;
+}
+.pollutionname50{
+    font-size:16px;
+    width: 45%;
+    color:#000;
+    padding-bottom:5px!important;
+    padding-left:15px!important;
+}
+.stationtimepoint{
+    font-size:16px;
+    width: 45%;
+    color:#000;
+    padding-bottom:5px!important;
+    margin-left:15px!important;
+}
+.areaname{
+    font-size:16px;
+    width: 30%;
+    color:#000;
+    padding-bottom:5px!important;
+    margin-left:12px!important;
+}
+.pollutionvalue{
+    font-size:16px;
+    width: 45%;
+    text-align: end!important;
+    padding-right:15px;
+    color:#000;
+    padding-bottom:5px!important;
+    margin-left:12px!important;
+}
+.timepointwater{
+    font-size:16px;
+    width: 30%;
+    color:#000;
+    padding-bottom:5px!important;
+    margin-left:15px!important;
+}
+.stationname{
+    font-size:16px;
+    width: 45%;
+    color:#000;
+    text-align: end!important;
+    padding-bottom:5px!important;
+    margin-right:12px!important;
+}
+.waterstationname{
+    font-size:16px;
+    width: 40%;
+    color:#000;
+    text-align: center!important;
+    padding-bottom:5px!important;
+    margin-right:12px!important;
+}
+.aqi{
+    font-size:16px;
+    width: 10%;
+    color:#000;
+    padding-bottom:5px!important;
+    margin-left:15px!important;
+}
+.wqi{
+    font-size:16px;
+    width: 10%;
+    color:#000;
+    padding-bottom:5px!important;
+    margin-left:42px!important;
+}
+.watertype{
+    font-size:16px;
+    width: 15%;
+    color:#000;
+    float:right;
+    padding-bottom:5px!important;
+    margin-left:15px!important;
+}
+.listitem{
+    font-size:16px;
+    color:#000;
+    float: left;
+    line-height: 13px;
+}
+.normalNmb{
+    font-size:10px;
+    color:#000;
+    float: left;
+    padding-left:10px !important;
+    text-align: center;
+}
+.warningNmb{
+    font-size: 10px;
+    color: #fff;
+    background-color: red;
+    border-radius: 8px;
+    float: left;
+    margin-top: -2px;
+    margin-left: 3px;
+    padding: 2px 6px 0px 6px !important;
+    line-height: 15px;
+}
+.footwarningNmb{
+    position: absolute;
+    top:2%;
+    left:32%;
+    font-size: 12px!important;
+    -webkit-transform:scale(0.8);
+    color: #fff;
+    background-color: red;
+    border-radius: 8px;
+    float: left;
+    margin-top: -2px;
+    margin-left: 3px;
+    padding: 2px 6px 0px 6px !important;
+    line-height: 15px;
+}
+#auditPage_Content .outlierdataTable .warningNmb{
+    margin-top: -2px!important;
+}
+.borderbox{
+    width:22%;
+    /*float: right!important;*/
+}
+.borderbox:nth-child(3){
+    margin-left: 3%;
+    padding-left: 8%;
+    width:22%;
+    border-left: 2px solid #999999;
+}
+.waterborderbox{
+    width:22%;
+    padding-left: 32%!important;
+}
+.citylistTitle{
+    background-color: #F1F1F1;
+    color: #666666;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+}
+.waterlistTitle{
+    background-color: #F1F1F1;
+    color: #666666;
+    position: fixed;
+    display: flex;
+    top:47px;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 10px;
+}
+.waterlistTitle span:nth-child(2){
+    padding-right: 7%;
+}
+/*异常城市SiteList*/
+#sitelistChooseBar,#followinglistChooseBar,#thresholdSetChooseBar{
+    background-color:#3F51B5;
+    color: #AFC3F7;
+    text-align:center;
+    overflow:hidden;
+    font-size:0px;
+    position: fixed;
+    top:45px;
+    width: 100%;
+}
+#sitelistChooseBar>div,#followinglistChooseBar>div,#thresholdSetChooseBar>div,#watersiteChooseBar>div{
+    font-size:18px;
+    width:50%;
+    float:left;
+    padding:8px 0px;
+}
+.sitelistChooseActive,.followinglistChooseActive,.thresholdSetChooseActive{
+    color: #fff;
+    border-bottom: 3px solid #2BC8C6;
+}
+#watersiteChooseBar{
+    background-color:#ffffff;
+    color: #000000;
+    text-align:center;
+    overflow:hidden;
+    font-size:0px;
+    position: fixed;
+    top:87px;
+    width: 100%;
+}
+.watersiteChooseActive{
+    border-bottom: 3px solid #2BC8C6;
+    color: #000;
+}
+.fixedDiv{
+    position: fixed;
+    top:86px;
+    width: 100%;
+    height:142px;
+}
+.waterfixedDiv{
+    position: fixed;
+    top:46px;
+    width: 100%;
+    height:200px;
+}
+.msgNum{
+    width: 100%;
+    text-align: center;
+    background-color: #fff;
+}
+.msgNum p{
+    padding:1px;
+    margin: 1px;
+    color: #000;
+}
+
+.msgNum p:nth-child(1){
+    padding-top:20px;
+    font-size:20px;
+}
+.msgNum p:nth-child(2) {
+    font-size: 16px;
+}
+.msgNum p:nth-child(3) {
+    font-size: 14px;
+    padding-bottom: 20px;
+    color: #CDCDCD;
+    margin-bottom: 0px;
+}
+.msgTitle{
+    background-color: #F3F3F3;
+    color: #9AA0A9;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+}
+.msgTitle span{
+    display: inline-block;
+    width: 31.3%;
+}
+.msgTitle span:nth-child(1){
+    text-align: start;
+    padding-left: 2%;
+}
+.msgTitle span:nth-child(2){
+    text-align: center;
+    width:31.3%;
+}
+.msgTitle span:nth-child(3){
+    text-align: end;
+    padding-right:2%;
+}
+.msgTitlewater{
+    position: fixed;
+    background-color: #F3F3F3;
+    color: #9AA0A9;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+}
+.msgTitlewater span{
+    display: inline-block;
+    width: 31.3%;
+}
+.msgTitlewater span:nth-child(1){
+    text-align: start;
+    padding-left: 2%;
+}
+.msgTitlewater span:nth-child(2){
+    text-align: center;
+    width:31.3%;
+}
+.msgTitlewater span:nth-child(3){
+    text-align: end;
+    padding-right:2%;
+}
+.watersubTitle{
+    background-color: #F3F3F3;
+    color: #000000;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+}
+.watersubTitle span{
+    display: inline-block;
+    width: 24%;
+}
+.watersubTitle span:nth-child(1){
+    text-align: start;
+    padding-left: 2%;
+}
+.watersubTitle span:nth-child(2){
+    text-align: center;
+    width:35.3%;
+}
+.watersubTitle span:nth-child(3){
+    text-align: end;
+    width: 29.3%;
+    padding-right:2%;
+}
+.watersubTitleSituation{
+    background-color: #F3F3F3;
+    color: #000000;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+}
+.watersubTitleSituation span{
+    display: inline-block;
+    width: 48%;
+}
+.watersubTitleSituation span:nth-child(1){
+    text-align: start;
+    padding-left: 2%;
+}
+.watersubTitleSituation span:nth-child(2){
+    text-align: end;
+    padding-right:2%;
+}
+.sitemsgTitle{
+    background-color: #F3F3F3;
+    color: #9AA0A9;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+}
+.sitemsgTitle span{
+    display: inline-block;
+    width: 37%;
+}
+.sitemsgTitle span:nth-child(1){
+    text-align: start;
+    padding-left: 2%;
+}
+.sitemsgTitle span:nth-child(2){
+    text-align: center;
+    width:20%;
+}
+.sitemsgTitle span:nth-child(3){
+    text-align: end;
+    padding-right:2%;
+}
+.wariningCircle{
+    width: 10px;
+    height:10px;
+    border-radius: 50%;
+    float: right;
+    background-color: red;
+}
+.sitelistTable,.watersitelistTable{
+    background-color: #fff;
+    font-size: 14px;
+    overflow: hidden;
+    padding:6px 0px;
+    border-bottom: 1px solid #E7E7E7;
+    display: -webkit-flex;
+    display: flex;
+    align-items:center;
+}
+.sitelistTable>div,.watersitelistTable>div{
+    float:left;
+    width: 31.3%;
+    color: #000;
+}
+.sitelistTable>div:nth-child(1),.watersitelistTable>div:nth-child(1){
+    padding-left: 2%;
+    text-align: start;
+}
+.sitelistTable>div:nth-child(1)>p:nth-child(1),.watersitelistTable>div:nth-child(1)>p:nth-child(1){
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.sitelistTable>div:nth-child(1)>p:nth-child(2),.watersitelistTable>div:nth-child(1)>p:nth-child(2){
+    color:#989898;
+    font-size: 14px;
+    margin: 0px;
+    margin-bottom: 1em;
+}
+.sitelistTable>div:nth-child(2){
+    text-align: center;
+    font-size: 20px;
+}
+.watersitelistTable>div:nth-child(2){
+    text-align: center;
+    font-size: 20px;
+    width: 40%;
+}
+.sitelistTable>div:nth-child(2)>p:nth-child(1){
+    margin:0px;
+    margin-bottom: 5px;
+}
+.sitelistTable>div:nth-child(3){
+    padding-right: 2%;
+    text-align:end;
+}
+.watersitelistTable>div:nth-child(3){
+    padding-right: 2%;
+    width: 22.6%;
+    text-align:end;
+}
+.sitelistTable>div:nth-child(3)>p:nth-child(1){
+    margin-top: 0px;
+}
+.spaceDiv{
+    width: 100%;
+    height:182px;
+}
+.waterspaceDiv{
+    width: 100%;
+    height:141px;
+}
+.doing{
+    font-size: 14px;
+    border:1px solid #000;
+    color: #000;
+    padding: 1px 5px;
+    margin: 0px 14px;
+}
+.done{
+    font-size: 14px;
+    border:1px solid #989898;
+    color: #989898;
+    padding: 1px 5px;
+    margin: 0px 14px;
+}
+/*siteDetail*/
+.siteDetailTable{
+    background-color: #fff;
+    color: #000;
+    font-family: Helvetica;
+    font-size: 16px;
+    overflow: hidden;
+    padding:10px;
+    border-bottom: 1px solid #E7E7E7;
+    display: -webkit-flex;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+}
+
+.submitbtn,.finishbtn{
+    width: 100%;
+    justify-content: center;
+}
+
+.submitbtn input{
+    padding:6px 60px;
+    color: #fff;
+    background-color: #169BD4;
+    border-radius: 8px;
+}
+.submitbtn,.finishbtn{
+    padding-bottom: 94%;
+    justify-content: center;
+}
+.finishbtn input{
+    padding:6px 60px;
+    color: #fff;
+    background-color: #FF3030;
+    border-radius: 8px;
+}
+/*关注列表*/
+.listitemTable{
+    overflow: hidden;
+    font-size:0px;
+    padding:4px 0px;
+    border-bottom: 1px solid #E7E7E7;
+    background-color: #fff;
+}
+.listitemTable>div{
+    float:left;
+    padding:10px 0px;
+    text-align: start;
+}
+.listitemTable:nth-child(1){
+  margin-top: 42px;
+}
+.followingPageItemLeft{
+    float:left;
+    width:50%;
+    text-align:left;
+    padding:16px;
+    box-sizing: border-box;
+    font-size:16px!important;
+    margin:0px!important;
+    height:100%;
+}
+.followingPageItemRight{
+    float:right;
+    width:10%;
+    text-align:right;
+    padding:10px;
+    padding-top:16px;
+    box-sizing: border-box;
+    font-size:16px!important;
+    margin:0px!important;
+    height:100%;
+}
+.followingPageItemRight i{
+    width: 20px;
+    height:20px;
+}
+
+/*阀值设置*/
+.itemTable{
+    background-color: #fff;
+    overflow: hidden;
+    padding:10px 0px;
+    border-bottom: 1px solid #E7E7E7;
+    display: -webkit-flex;
+    display: flex;
+    align-items:center;
+}
+.itemTable:nth-child(1){
+    margin-top: 43px;
+}
+.AQIItem{
+    justify-content: flex-start;
+    width: 30%;
+    padding-left: 5%;
+    color: #000;
+    font-size: 20px;
+}
+.inputDiv{
+    justify-content: center;
+    width: 80%;
+}
+.inputDiv>input{
+    width:66px;
+    text-align: center;
+    margin: 0px 5px;
+    background-color:#F0F1F5;
+    border: 1px solid #F0F1F5;
+    color: #5D5D5E;
+}
+.inputDiv>p{
+    margin-top: 0px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+#SubmitItem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 0px 60px;
+}
+#SubmitItem button{
+    margin-top: -20px;
+    padding: 5px 10px;
+    background-color: #3F51B5;
+    color: #fff;
+    border-radius: 8px;
+}
+/*登录*/
+#loginPage_Content{
+    height:100%;
+}
+#loginPage{
+    height:100%;
+}
+.loginItem{
+    display: flex;
+    flex-direction: column;
+    background-image: url("../img/backGround/BG_login.png");
+    height:100%;
+    width: 100%;
+    background-size:100% 100%;
+}
+#logo{
+    align-self: center;
+    background: url("../img/icon/logo.png") no-repeat;
+    width: 60px;
+    height: 60px;
+    margin-top: 40%;
+    background-size:100% 100%;
+}
+#loginTitle{
+    align-self: center;
+    font-size: 18px;
+    color: #fff;
+    margin-top: 0.5em;
+}
+.inputGroup>i{
+    display: inline-block;
+    color: #fff;
+}
+.nameInput{
+    border-bottom: 1px solid #A6BBC2;
+    background: transparent;
+    padding-top: 18px;
+    padding-bottom: 2px;
+    margin:0px 20px;
+    background: url("../img/icon/admin.png") no-repeat;
+    background-size: 20px 20px;
+    background-position:0% 80%;
+}
+.pswInput{
+    border-bottom: 1px solid #A6BBC2;
+    background: transparent;
+    padding-top: 18px;
+    padding-bottom: 2px;
+    margin:0px 20px;
+    background: url("../img/icon/password.png") no-repeat;
+    background-size: 20px 20px;
+    background-position:0% 80%;
+}
+#username,#password{
+    background: transparent;
+    border: 0px;
+    width: 100%;
+    color: #fff;
+    line-height: 16px;
+    font-size: 16px;
+    height:1.5em;
+    padding-left: 30px;
+}
+#username:focus,#password:focus{
+    outline: none;
+}
+#citySelector{
+    margin:20px 5%;
+    margin-top: 0px;
+    width: 90% !important;
+    padding:10px 5px;
+    border: 0px;
+    border-radius: 3px;
+    text-shadow: 1px;
+}
+#loginSubmit{
+    margin:0px 5%;
+    padding: 10px 5px;
+    background-color: #3F51B5;
+    border-radius: 3px;
+    color: #fff;
+    border: 0px;
+    width: 90% !important;
+}
+#saveButton{
+    margin:0px 5%;
+    padding: 10px 5px;
+    border-radius: 3px;
+    color: #fff;
+    border: 0px;
+    width: 90% !important;
+    text-align: right;
+    position: relative;
+    font-family: 'DS1'!important;
+    font-weight: 100!important;
+}
+#saveAccount{
+    height:18px;
+    display: inline-block;
+    position: absolute;
+    top:-15px;
+    left:90%;
+}
+#savetext{
+ padding-right: 12%;
+}
+.dataerrTitle{
+    position: fixed;
+    background-color: #F3F3F3;
+    color: #9AA0A9;
+    width: 100%;
+    top: 47px;
+    padding:7px 0px;
+    border-bottom: 1px solid #ccc;
+}
+.dataerrTitle span{
+    display: inline-block;
+    width: 45%;
+}
+.dataerrTitle span:nth-child(1){
+    text-align: start;
+    padding-left: 4%;
+}
+.dataerrTitle span:nth-child(2){
+    text-align: end;
+    padding-right: 6%;
+}
+.mbsc-android-holo .dwv
+{
+    text-align:left;
+    text-indent:.8em;
+}
+.abCountTitle{
+    padding: 5px 0px;
+    background-color: #F3F3F3;
+}
+.abCountTitle div{
+    display: inline-block;
+}
+.abCountTitle div:nth-child(1){
+    padding-left: 10%;
+    width: 50%;
+}
+.abCountTitle div:nth-child(2){
+    width: 30%;
+}

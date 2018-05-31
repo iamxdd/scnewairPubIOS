@@ -1,0 +1,30 @@
+i{
+    text-shadow: 0px 0px 0px!important;
+}
+.login_icon_ac{
+    position:absolute;
+    margin-top: 7px;
+    margin-left: 5px;
+}
+.login_icon_pw{
+    position:absolute;
+    margin-top: 7px;
+    margin-left:6px;
+}
+.IcondownArrowNotPub{
+    color:#e0e0e0;
+}
+.IcondownArrowYetPub{
+    color:#22bbb9;
+}
+.IconCheckNot{
+    color:#e0e0e0;
+}
+.IconCheckYet{
+    color:#22bbb9;
+}
+.striLabelIcon{
+    color:#2BC8C6;
+    font-size:20px!important;
+    margin-right:5px;
+}
